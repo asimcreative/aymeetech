@@ -1,0 +1,816 @@
+/**
+ * AymeeTech Custom Styles - Modern UI Enhancements
+ * Version 1.0.0
+ */
+
+/* ===========================
+   CSS Variables
+   =========================== */
+:root {
+    --ayt-primary: #4054b2;
+    --ayt-primary-dark: #2d3a8c;
+    --ayt-secondary: #ff7d00;
+    --ayt-secondary-light: #ff9a33;
+    --ayt-accent: #5ad0ff;
+    --ayt-dark: #1a1a2e;
+    --ayt-darker: #0f0f1e;
+    --ayt-text: #4a4a5a;
+    --ayt-text-light: #6e6e7e;
+    --ayt-white: #ffffff;
+    --ayt-bg-light: #f8f9fc;
+    --ayt-bg-gradient: linear-gradient(135deg, #4054b2 0%, #6c63ff 100%);
+    --ayt-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --ayt-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --ayt-shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --ayt-shadow-hover: 0 12px 48px rgba(64, 84, 178, 0.2);
+    --ayt-radius: 12px;
+    --ayt-radius-lg: 20px;
+    --ayt-transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===========================
+   Global Improvements
+   =========================== */
+body {
+    color: var(--ayt-text);
+    letter-spacing: 0.01em;
+}
+
+::selection {
+    background: var(--ayt-primary);
+    color: var(--ayt-white);
+}
+
+/* Improved link transitions */
+a {
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* ===========================
+   Scroll Animations
+   =========================== */
+.ayt-animate-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ayt-animate-init.ayt-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children */
+.ayt-visible .wpb_column:nth-child(1) { transition-delay: 0.1s; }
+.ayt-visible .wpb_column:nth-child(2) { transition-delay: 0.2s; }
+.ayt-visible .wpb_column:nth-child(3) { transition-delay: 0.3s; }
+.ayt-visible .wpb_column:nth-child(4) { transition-delay: 0.4s; }
+
+/* ===========================
+   Header Enhancements
+   =========================== */
+.header_area_container {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header_sticky {
+    box-shadow: var(--ayt-shadow-md) !important;
+}
+
+/* Navigation hover effects */
+.primary-nav > li > a {
+    position: relative;
+    transition: var(--ayt-transition) !important;
+}
+
+.primary-nav > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--ayt-secondary);
+    transition: var(--ayt-transition);
+    transform: translateX(-50%);
+}
+
+.primary-nav > li:hover > a::after,
+.primary-nav > li.current-menu-item > a::after {
+    width: 70%;
+}
+
+/* Dropdown menu improvements */
+.primary-nav .sub-menu {
+    border-radius: 0 0 var(--ayt-radius) var(--ayt-radius) !important;
+    box-shadow: var(--ayt-shadow-lg) !important;
+    border: none !important;
+    overflow: hidden;
+}
+
+.primary-nav .sub-menu li a {
+    transition: var(--ayt-transition) !important;
+    padding: 10px 20px !important;
+}
+
+.primary-nav .sub-menu li a:hover {
+    padding-left: 28px !important;
+    background: var(--ayt-bg-light) !important;
+    color: var(--ayt-primary) !important;
+}
+
+/* ===========================
+   Button Enhancements
+   =========================== */
+.seofy_module_button .wgl_module_btn,
+.wgl-button,
+.vc_btn3,
+a.btn,
+.btn {
+    border-radius: 50px !important;
+    padding: 14px 36px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: var(--ayt-transition) !important;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.seofy_module_button .wgl_module_btn:hover,
+.wgl-button:hover,
+.vc_btn3:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+}
+
+.seofy_module_button .wgl_module_btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.seofy_module_button .wgl_module_btn:hover::before {
+    left: 100%;
+}
+
+/* ===========================
+   Service Cards
+   =========================== */
+.wgl-services-5,
+.wgl-services-6,
+.wgl-services-2,
+.wgl-services {
+    border-radius: var(--ayt-radius) !important;
+    transition: var(--ayt-transition) !important;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+}
+
+.wgl-services-5:hover,
+.wgl-services-6:hover,
+.wgl-services-2:hover,
+.wgl-services:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+    border-color: transparent !important;
+}
+
+/* Service icon animation */
+.wgl-services-5 .wgl-services_icon,
+.wgl-services-6 .wgl-services_icon,
+.wgl-services .wgl-services_icon {
+    transition: var(--ayt-transition) !important;
+}
+
+.wgl-services-5:hover .wgl-services_icon,
+.wgl-services-6:hover .wgl-services_icon,
+.wgl-services:hover .wgl-services_icon {
+    transform: scale(1.15) rotateY(180deg) !important;
+}
+
+/* Service title */
+.wgl-services-5 .wgl-services_title a,
+.wgl-services .wgl-services_title a {
+    transition: color 0.3s ease !important;
+}
+
+.wgl-services-5:hover .wgl-services_title a,
+.wgl-services:hover .wgl-services_title a {
+    color: var(--ayt-primary) !important;
+}
+
+/* ===========================
+   Counter Section
+   =========================== */
+.seofy_module_counter {
+    transition: var(--ayt-transition) !important;
+    padding: 25px !important;
+    border-radius: var(--ayt-radius) !important;
+}
+
+.seofy_module_counter:hover {
+    transform: scale(1.05) !important;
+}
+
+.seofy_module_counter .counter_value {
+    font-weight: 800 !important;
+    background: var(--ayt-bg-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===========================
+   Testimonials
+   =========================== */
+.wgl_module_testimonial {
+    border-radius: var(--ayt-radius-lg) !important;
+    transition: var(--ayt-transition) !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+}
+
+.wgl_module_testimonial:hover {
+    box-shadow: var(--ayt-shadow-lg) !important;
+    transform: translateY(-5px) !important;
+}
+
+.wgl_module_testimonial .wgl_module_testimonial-quote {
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--ayt-text);
+}
+
+/* Quote icon */
+.wgl_module_testimonial::before {
+    font-size: 60px;
+    opacity: 0.08;
+    color: var(--ayt-primary);
+}
+
+/* ===========================
+   Portfolio Items
+   =========================== */
+.wgl-portfolio .portfolio-item {
+    border-radius: var(--ayt-radius) !important;
+    overflow: hidden !important;
+    transition: var(--ayt-transition) !important;
+}
+
+.wgl-portfolio .portfolio-item:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--ayt-shadow-lg) !important;
+}
+
+.wgl-portfolio .portfolio-item img {
+    transition: transform 0.6s ease !important;
+}
+
+.wgl-portfolio .portfolio-item:hover img {
+    transform: scale(1.08) !important;
+}
+
+/* ===========================
+   Team Members
+   =========================== */
+.wgl_module_team,
+.wgl_module_team_2 {
+    border-radius: var(--ayt-radius) !important;
+    overflow: hidden !important;
+    transition: var(--ayt-transition) !important;
+    box-shadow: var(--ayt-shadow-sm);
+}
+
+.wgl_module_team:hover,
+.wgl_module_team_2:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+}
+
+.wgl_module_team .team-image img,
+.wgl_module_team_2 .team-image img {
+    transition: transform 0.5s ease !important;
+}
+
+.wgl_module_team:hover .team-image img,
+.wgl_module_team_2:hover .team-image img {
+    transform: scale(1.05) !important;
+}
+
+/* ===========================
+   Section Headings
+   =========================== */
+.seofy_module_title h2,
+.seofy_module_title h3 {
+    position: relative;
+    display: inline-block;
+}
+
+.seofy_module_title .title_wrapper::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--ayt-bg-gradient);
+    border-radius: 2px;
+    margin-top: 15px;
+}
+
+.seofy_module_title .title_wrapper[style*="center"]::after,
+.seofy_module_title.text-center .title_wrapper::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===========================
+   Footer Improvements
+   =========================== */
+footer.footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer.footer .footer_top-area {
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer links hover */
+footer .hover_links a {
+    transition: var(--ayt-transition) !important;
+    position: relative;
+    display: inline-block;
+}
+
+footer .hover_links a:hover {
+    transform: translateX(5px);
+    color: var(--ayt-secondary) !important;
+}
+
+footer .hover_links a::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: var(--ayt-transition);
+    color: var(--ayt-secondary);
+}
+
+footer .hover_links a:hover::before {
+    left: -15px;
+    opacity: 1;
+}
+
+/* Copyright section */
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* ===========================
+   Scroll to Top Button
+   =========================== */
+#scroll_up {
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    background: var(--ayt-bg-gradient) !important;
+    box-shadow: var(--ayt-shadow-md) !important;
+    transition: var(--ayt-transition) !important;
+    right: 25px !important;
+    bottom: 25px !important;
+}
+
+#scroll_up:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+}
+
+/* ===========================
+   Image Hover Effects
+   =========================== */
+.vc_single_image img,
+.wpb_single_image img {
+    border-radius: var(--ayt-radius);
+    transition: var(--ayt-transition) !important;
+}
+
+.vc_single_image:hover img,
+.wpb_single_image:hover img {
+    transform: scale(1.03);
+    box-shadow: var(--ayt-shadow-lg);
+}
+
+/* ===========================
+   Custom Page Styles
+   =========================== */
+
+/* FAQ Page */
+.ayt-faq-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.ayt-faq-item {
+    background: var(--ayt-white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: var(--ayt-radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: var(--ayt-transition);
+    box-shadow: var(--ayt-shadow-sm);
+}
+
+.ayt-faq-item:hover {
+    box-shadow: var(--ayt-shadow-md);
+    border-color: rgba(64, 84, 178, 0.15);
+}
+
+.ayt-faq-question {
+    padding: 22px 60px 22px 28px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ayt-dark);
+    cursor: pointer;
+    position: relative;
+    transition: var(--ayt-transition);
+    line-height: 1.5;
+}
+
+.ayt-faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ayt-primary);
+    transition: var(--ayt-transition);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(64, 84, 178, 0.08);
+}
+
+.ayt-faq-item.active .ayt-faq-question::after {
+    content: '−';
+    background: var(--ayt-primary);
+    color: var(--ayt-white);
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.ayt-faq-item.active .ayt-faq-question {
+    color: var(--ayt-primary);
+    background: rgba(64, 84, 178, 0.03);
+}
+
+.ayt-faq-answer {
+    padding: 0 28px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    color: var(--ayt-text-light);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.ayt-faq-item.active .ayt-faq-answer {
+    padding: 0 28px 24px;
+    max-height: 300px;
+}
+
+/* Process Section */
+.ayt-process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.ayt-process-step {
+    text-align: center;
+    padding: 40px 28px;
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius-lg);
+    box-shadow: var(--ayt-shadow-sm);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: var(--ayt-transition);
+    position: relative;
+}
+
+.ayt-process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: rgba(64, 84, 178, 0.15);
+}
+
+.ayt-process-number {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--ayt-bg-gradient);
+    color: var(--ayt-white);
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 4px 15px rgba(64, 84, 178, 0.3);
+}
+
+.ayt-process-step h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 12px;
+}
+
+.ayt-process-step p {
+    color: var(--ayt-text-light);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Why Choose Us */
+.ayt-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.ayt-feature-card {
+    padding: 32px;
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: var(--ayt-transition);
+    box-shadow: var(--ayt-shadow-sm);
+}
+
+.ayt-feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: rgba(64, 84, 178, 0.15);
+}
+
+.ayt-feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(64, 84, 178, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    transition: var(--ayt-transition);
+}
+
+.ayt-feature-card:hover .ayt-feature-icon {
+    background: var(--ayt-bg-gradient);
+    color: var(--ayt-white);
+    transform: rotateY(180deg);
+}
+
+.ayt-feature-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 10px;
+}
+
+.ayt-feature-card p {
+    color: var(--ayt-text-light);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Tech Stack */
+.ayt-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.ayt-tech-item {
+    text-align: center;
+    padding: 28px 16px;
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: var(--ayt-transition);
+}
+
+.ayt-tech-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ayt-shadow-md);
+    border-color: var(--ayt-primary);
+}
+
+.ayt-tech-item .tech-name {
+    font-weight: 600;
+    color: var(--ayt-dark);
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* ===========================
+   Page Banner Improvements
+   =========================== */
+.page_title {
+    position: relative;
+    overflow: hidden;
+}
+
+.page_title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(64, 84, 178, 0.75) 100%);
+    z-index: 1;
+}
+
+.page_title .page-header {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===========================
+   Contact Form Improvements
+   =========================== */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form textarea {
+    border-radius: var(--ayt-radius) !important;
+    border: 2px solid rgba(0,0,0,0.08) !important;
+    padding: 14px 20px !important;
+    transition: var(--ayt-transition) !important;
+    font-size: 15px !important;
+}
+
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+    border-color: var(--ayt-primary) !important;
+    box-shadow: 0 0 0 4px rgba(64, 84, 178, 0.1) !important;
+    outline: none !important;
+}
+
+.wpcf7-form .wpcf7-submit {
+    border-radius: 50px !important;
+    padding: 16px 40px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    transition: var(--ayt-transition) !important;
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+}
+
+/* ===========================
+   WPBakery Row Improvements
+   =========================== */
+.vc_row {
+    position: relative;
+}
+
+/* Section separators */
+.vc_row[data-vc-full-width="true"] + .vc_row[data-vc-full-width="true"] {
+    margin-top: 0 !important;
+}
+
+/* ===========================
+   Loading Animation
+   =========================== */
+@keyframes ayt-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ayt-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes ayt-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===========================
+   Responsive Improvements
+   =========================== */
+@media (max-width: 1024px) {
+    .ayt-process {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ayt-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .ayt-process {
+        grid-template-columns: 1fr;
+    }
+    .ayt-features {
+        grid-template-columns: 1fr;
+    }
+    .ayt-tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .seofy_module_counter {
+        margin-bottom: 20px;
+    }
+
+    /* Better mobile spacing */
+    .wpb_column {
+        margin-bottom: 20px;
+    }
+
+    /* Mobile nav improvements */
+    .mobile_nav_wrapper {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .ayt-tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ayt-faq-question {
+        font-size: 15px;
+        padding: 18px 50px 18px 20px;
+    }
+}
+
+/* ===========================
+   Smooth scrollbar
+   =========================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--ayt-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ayt-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--ayt-primary-dark);
+}
+
+/* ===========================
+   Preloader Enhancement
+   =========================== */
+.preloader {
+    background: var(--ayt-dark) !important;
+}
+
+/* ===========================
+   WP WhatsApp Chat Button
+   =========================== */
+.qlwapp-toggle {
+    transition: var(--ayt-transition) !important;
+}
+
+.qlwapp-toggle:hover {
+    transform: scale(1.1) !important;
+}
