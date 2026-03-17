@@ -1,0 +1,199 @@
+/* Container */
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 15px);
+  padding-left: var(--bs-gutter-x, 15px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+
+
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+.grid-row {
+  gap: 25px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+}
+
+@media (max-width: 540px) {
+  .grid-row {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+body .elc-inbd-comment__field input {
+  padding: 0;
+  padding-left: 10px;
+}
+
+body .elc-inbd-comment__field textarea {
+  padding-top: 10px;
+}
+
+.blog-post-author {
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.blog-post-author .thumb {
+  max-width: 50px;
+}
+
+.jpost-cat {
+  padding-left: 7px
+}
+
+.wp-block-heading {
+  font-size: 20px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 1px;
+  text-transform: capitalize;
+  color: var(--black-2);
+  text-decoration-color: var(--black-2);
+  margin-bottom: 25px;
+}
+
+/* Accessibility */
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  right: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* Align images and media to the left */
+.alignleft {
+  float: left;
+  /* Float the element to the left */
+  margin-right: 1.5em;
+  /* Add some space to the right of the element */
+  margin-bottom: 1em;
+  /* Add space below the element */
+}
+
+/* Clearfix for containing floated elements */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style for author information */
+.bypostauthor {
+  display: flex;
+  /* Use flexbox for layout */
+  align-items: center;
+  /* Center items vertically */
+  margin: 1em 0;
+  /* Add some space above and below */
+  font-size: 0.9em;
+  /* Adjust font size */
+  color: #555;
+  /* Set a darker color for text */
+}
+
+/* Style for the author avatar */
+.bypostauthor img {
+  border-radius: 50%;
+  /* Make the avatar circular */
+  margin-right: 10px;
+  /* Space between avatar and text */
+  width: 40px;
+  /* Set a fixed width */
+  height: 40px;
+  /* Set a fixed height */
+}
+
+/* Style for gallery captions */
+.gallery-caption {
+  font-size: 0.9em;
+  /* Adjust font size */
+  color: #666;
+  /* Set a lighter color for the text */
+  margin: 0.5em 0;
+  /* Add space above and below the caption */
+  text-align: center;
+  /* Center align the caption text */
+  font-style: italic;
+  /* Use italic style for emphasis */
+}
+
+/* Optional: Add a background to the caption */
+.gallery-caption {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Light background for readability */
+  padding: 0.5em;
+  /* Add some padding */
+  border-radius: 4px;
+  /* Rounded corners */
+}
+
+#content-area[tabindex="-1"]:focus {
+  outline: 0;
+}

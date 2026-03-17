@@ -1,0 +1,83 @@
+/************ TABLE OF CONTENTS ***************
+
+  01. VARIABLES CSS START
+  02. TYPOGRAPHY CSS START
+  03. ANIMATION CSS START
+  04. SPACE CSS START
+  07. BUTTON CSS START
+  08. MENU CSS START
+  09. HEADER CSS START
+  10. OFFCANVAS CSS START
+  11. BLOG CSS START
+  12. WIDGETS CSS START
+  13. FOOTER CSS START
+**********************************************/
+
+
+/*----------------------------------------*/
+/*  01. VARIABLES CSS START
+/*----------------------------------------*/
+
+// Colors
+:root {
+  scroll-behavior: auto;
+  --font-primary: "DM Sans", sans-serif;
+  --font-secondary: "Space Grotesk", serif;
+  --primary: #FC5A11;
+  --secondary: #2c2c2c;
+
+  --black: #000;
+  --black-2: #072032;
+  --black-3: #212125;
+  --black-4: #262629;
+  --black-5: #27272B;
+  --black-6: #333337;
+  --black-7: #27292D;
+
+  --white: #fff;
+  --white-2: #F9F9F9;
+  --white-3: #F3F3F3;
+  --white-4: #EFEFEF;
+  --white-5: #C1C1C1;
+  --gray: #666666;
+  --gray-2: #D9D9D9;
+  --gray-3: #636376;
+  --gray-4: #999999;
+
+  --orange: #FD8F77;
+  --orange-deep: #EF6C22;
+  --orange-light: #BAB0AA;
+  --orange-2: #F56C1F;
+  --orange-3: #F3A072;
+
+
+  --blue-light: #52526C;
+  --blue-2: #3D3F60;
+  --blue-3: #6A6BBF;
+  --blue-4: #494B6C;
+
+
+  --yellow: #F4D8BB;
+  --yellow-light: #E8E0DB;
+  --yellow-2: #C2B7A1;
+  --purple: #AF89FF;
+  --purple-2: #D4BFFF;
+  --purple-3: #8181CB;
+
+  --pink: #F8D3D3;
+  --green: #3C524C;
+}
+
+
+// Responsive Variable
+$xxxl: 'only screen and (min-width: 1920px)';
+$xxl: 'only screen and (max-width: 1919px)';
+$xl-1: 'only screen and (max-width: 1700px)';
+$xl-2: 'only screen and (max-width: 1300px)';
+$xl: 'only screen and (max-width: 1399px)';
+$lg: 'only screen and (max-width: 1199px)';
+$md: 'only screen and (max-width: 991px)';
+$sm: 'only screen and (max-width: 767px)';
+$xs: '(max-width: 575px)';
+
+

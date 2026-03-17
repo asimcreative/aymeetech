@@ -1,0 +1,692 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Hello Animation\n"
+"POT-Creation-Date: 2024-09-28 14:37+0600\n"
+"PO-Revision-Date: 2024-09-09 18:07+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: esc_html;esc_html__;esc_html_e;esc__attr;esc_attr__;"
+"esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .git\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+"X-Poedit-SearchPathExcluded-2: languages\n"
+"X-Poedit-SearchPathExcluded-3: README.md\n"
+
+#: 404.php:7
+msgid "Back to Home"
+msgstr ""
+
+#: 404.php:16
+msgid "404"
+msgstr ""
+
+#: 404.php:17
+msgid "Ops! Page not found"
+msgstr ""
+
+#: 404.php:19
+msgid ""
+"The page you are looking for was moved, removed, renamed or never existed."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:616
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:617
+msgid "Update Required"
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:735
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:1042
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:1042
+#: app/class-tgm-plugin-activation.php:1052
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:1052
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:2681
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:2834
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:3059
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:3085
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:3682
+msgid "Show Details"
+msgstr ""
+
+#: app/class-tgm-plugin-activation.php:3682
+msgid "Hide Details"
+msgstr ""
+
+#: app/core/default.widgets.class.php:26
+msgid "Blog widget area"
+msgstr ""
+
+#: app/core/default.widgets.class.php:28
+msgid "Appears on posts."
+msgstr ""
+
+#: app/core/default.widgets.class.php:38
+msgid "Footer One"
+msgstr ""
+
+#: app/core/default.widgets.class.php:40
+msgid "Footer one Widget."
+msgstr ""
+
+#: app/core/default.widgets.class.php:50
+msgid "Footer Two"
+msgstr ""
+
+#: app/core/default.widgets.class.php:52
+msgid "Footer  widget."
+msgstr ""
+
+#: app/core/default.widgets.class.php:62
+msgid "Footer Three"
+msgstr ""
+
+#: app/core/default.widgets.class.php:64 app/core/default.widgets.class.php:76
+msgid "Footer widget."
+msgstr ""
+
+#: app/core/default.widgets.class.php:74
+msgid "Footer Four"
+msgstr ""
+
+#: app/core/required-plugins.class.php:24
+msgid "Elementor"
+msgstr ""
+
+#: app/core/required-plugins.class.php:30
+msgid "Kirki Customizer Framework"
+msgstr ""
+
+#: app/core/required-plugins.class.php:36
+msgid "Animation Addons For Elementor"
+msgstr ""
+
+#: app/core/setup.class.php:31 app/core/setup.class.php:32
+#: app/customizer.php:38
+msgid "Hello Animation"
+msgstr ""
+
+#: app/core/setup.class.php:78
+msgid "Primary"
+msgstr ""
+
+#: app/core/tags.class.php:54 app/core/tags.class.php:59
+msgid ", "
+msgstr ""
+
+#: app/core/tags.class.php:56
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: app/core/tags.class.php:61
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: app/core/tags.class.php:73
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: app/customizer.php:18 template-parts/headers/content-offcanvas.php:32
+msgid "Offcanvas Logo"
+msgstr ""
+
+#: app/customizer.php:19
+msgid "The saved value will the URL."
+msgstr ""
+
+#: app/customizer.php:27
+msgid "Mobile Menu Icon"
+msgstr ""
+
+#: app/customizer.php:28
+msgid "Offcanvas menu Icon."
+msgstr ""
+
+#: app/customizer.php:39
+msgid "Hello Animation Theme Settings."
+msgstr ""
+
+#: app/options/banner.php:17
+msgid "Banner Enable"
+msgstr ""
+
+#: app/options/banner.php:18
+msgid "Enable Banner"
+msgstr ""
+
+#: app/options/banner.php:22 app/options/banner.php:36 app/options/blog.php:39
+#: app/options/blog.php:53 app/options/blog.php:67 app/options/blog.php:81
+#: app/options/blog.php:110 app/options/blog.php:124 app/options/blog.php:138
+#: app/options/blog.php:152 app/options/blog.php:178 app/options/blog.php:192
+#: app/options/blog.php:206 app/options/blog.php:220
+#: app/options/header-offcanvas.php:21 app/options/header-offcanvas.php:115
+#: app/options/header.php:21 app/options/header.php:53
+msgid "Enable"
+msgstr ""
+
+#: app/options/banner.php:23 app/options/banner.php:37 app/options/blog.php:40
+#: app/options/blog.php:54 app/options/blog.php:68 app/options/blog.php:82
+#: app/options/blog.php:111 app/options/blog.php:125 app/options/blog.php:139
+#: app/options/blog.php:153 app/options/blog.php:179 app/options/blog.php:193
+#: app/options/blog.php:207 app/options/blog.php:221
+#: app/options/header-offcanvas.php:22 app/options/header-offcanvas.php:116
+#: app/options/header.php:22 app/options/header.php:54
+msgid "Disable"
+msgstr ""
+
+#: app/options/banner.php:31
+msgid "BreadCrumb Enable"
+msgstr ""
+
+#: app/options/banner.php:32
+msgid "Enable Banner breadcrumb"
+msgstr ""
+
+#: app/options/banner.php:44
+msgid "Breadcrumb Limit (words)"
+msgstr ""
+
+#: app/options/banner.php:58
+msgid "Background Control"
+msgstr ""
+
+#: app/options/banner.php:59
+msgid "Background conrols are pretty complex! (but useful if used properly)"
+msgstr ""
+
+#: app/options/banner.php:82
+msgid "Banner Title color"
+msgstr ""
+
+#: app/options/banner.php:98
+msgid "Breadcrumb color"
+msgstr ""
+
+#: app/options/banner.php:114
+msgid "Breadcrumb current page title color"
+msgstr ""
+
+#: app/options/blog.php:17
+msgid "Select Sidebar"
+msgstr ""
+
+#: app/options/blog.php:20
+msgid "Choose an sidebar"
+msgstr ""
+
+#: app/options/blog.php:22 app/options/header-offcanvas.php:35
+msgid "Left"
+msgstr ""
+
+#: app/options/blog.php:23 app/options/header-offcanvas.php:36
+msgid "Center"
+msgstr ""
+
+#: app/options/blog.php:24 app/options/header-offcanvas.php:37
+msgid "Right"
+msgstr ""
+
+#: app/options/blog.php:34 app/options/blog.php:187
+msgid "Blog Navigation"
+msgstr ""
+
+#: app/options/blog.php:35 app/options/blog.php:188
+msgid "Disable or Enable blog details Navigation"
+msgstr ""
+
+#: app/options/blog.php:48
+msgid "Blog Comment"
+msgstr ""
+
+#: app/options/blog.php:49
+msgid "Disable or Enable blog coment"
+msgstr ""
+
+#: app/options/blog.php:62
+msgid "Blog Date"
+msgstr ""
+
+#: app/options/blog.php:63
+msgid "Disable or Enable blog date"
+msgstr ""
+
+#: app/options/blog.php:76
+msgid "Blog Category"
+msgstr ""
+
+#: app/options/blog.php:77
+msgid "Disable or Enable blog categrory"
+msgstr ""
+
+#: app/options/blog.php:91
+msgid "Category Limit"
+msgstr ""
+
+#: app/options/blog.php:105 app/options/blog.php:215
+msgid "Blog Author"
+msgstr ""
+
+#: app/options/blog.php:106
+msgid "Disable or Enable blog author"
+msgstr ""
+
+#: app/options/blog.php:119
+msgid "Blog Author Image"
+msgstr ""
+
+#: app/options/blog.php:120
+msgid "Disable or Enable blog author Image"
+msgstr ""
+
+#: app/options/blog.php:133 app/options/blog.php:147
+msgid "Blog Readmore"
+msgstr ""
+
+#: app/options/blog.php:134 app/options/blog.php:148
+msgid "Disable or Enable blog readmore"
+msgstr ""
+
+#: app/options/blog.php:163
+msgid "Search Heading"
+msgstr ""
+
+#: app/options/blog.php:165 template-parts/banner/content-banner-search.php:3
+msgid "Search Page"
+msgstr ""
+
+#: app/options/blog.php:173
+msgid "Blog Pagination"
+msgstr ""
+
+#: app/options/blog.php:174
+msgid "Disable or Enable Blog Pagination"
+msgstr ""
+
+#: app/options/blog.php:201
+msgid "Blog Tags"
+msgstr ""
+
+#: app/options/blog.php:202
+msgid "Disable or Enable blog details tags in post footer"
+msgstr ""
+
+#: app/options/blog.php:216
+msgid "Disable or Enable blog details author in post footer"
+msgstr ""
+
+#: app/options/header-offcanvas.php:16
+msgid "Left Direction"
+msgstr ""
+
+#: app/options/header-offcanvas.php:17
+msgid "Open Offcanvas From left"
+msgstr ""
+
+#: app/options/header-offcanvas.php:30
+msgid "Content Align"
+msgstr ""
+
+#: app/options/header-offcanvas.php:31
+msgid "Align Content"
+msgstr ""
+
+#: app/options/header-offcanvas.php:53
+msgid "Offcanvas Body Color"
+msgstr ""
+
+#: app/options/header-offcanvas.php:69
+msgid "Menu Color"
+msgstr ""
+
+#: app/options/header-offcanvas.php:85
+msgid "Desciption"
+msgstr ""
+
+#: app/options/header-offcanvas.php:87
+msgid "Your Site Description"
+msgstr ""
+
+#: app/options/header-offcanvas.php:95
+msgid "Description Color"
+msgstr ""
+
+#: app/options/header-offcanvas.php:110
+msgid "Gallery Enable"
+msgstr ""
+
+#: app/options/header-offcanvas.php:111
+msgid "Enable Offcanvas Gallery"
+msgstr ""
+
+#: app/options/header-offcanvas.php:124
+msgid "Heading"
+msgstr ""
+
+#: app/options/header-offcanvas.php:126
+msgid "Gallery"
+msgstr ""
+
+#: app/options/header-offcanvas.php:134
+msgid "Heading Color"
+msgstr ""
+
+#: app/options/header-offcanvas.php:148
+msgid "Gallery Images"
+msgstr ""
+
+#: app/options/header-offcanvas.php:156
+msgid "Link URL"
+msgstr ""
+
+#: app/options/header-offcanvas.php:157
+msgid "Provide image link"
+msgstr ""
+
+#: app/options/header-offcanvas.php:163
+msgid "Image"
+msgstr ""
+
+#: app/options/header-offcanvas.php:164
+msgid "Choose image src"
+msgstr ""
+
+#: app/options/header.php:16
+msgid "Sticky Header"
+msgstr ""
+
+#: app/options/header.php:17 app/options/header.php:49
+msgid "Specifies where to open the linked document"
+msgstr ""
+
+#: app/options/header.php:39
+msgid "Button URL"
+msgstr ""
+
+#: app/options/header.php:48
+msgid "Target Blank"
+msgstr ""
+
+#: app/options/header.php:62
+msgid "Rel Type"
+msgstr ""
+
+#: app/options/header.php:65
+msgid ""
+"Specifies the relationship between the current document and the linked "
+"document"
+msgstr ""
+
+#: app/options/header.php:66
+msgid "Choose an option"
+msgstr ""
+
+#: app/options/header.php:68
+msgid "Follow"
+msgstr ""
+
+#: app/options/header.php:69
+msgid "No Follow"
+msgstr ""
+
+#: app/options/header.php:70
+msgid "No Referrer"
+msgstr ""
+
+#: app/options/header.php:71
+msgid "No Opener"
+msgstr ""
+
+#: app/options/header.php:72
+msgid "External"
+msgstr ""
+
+#: app/utility/helpers.php:85 app/utility/helpers.php:132
+#, php-format
+msgid "%s comments"
+msgstr ""
+
+#: app/utility/helpers.php:85 app/utility/helpers.php:132
+#, php-format
+msgid "%s comment"
+msgstr ""
+
+#: app/utility/helpers.php:118
+msgid "by"
+msgstr ""
+
+#: app/utility/helpers.php:153
+msgid "More pages: "
+msgstr ""
+
+#: app/utility/helpers.php:159
+msgid "Next "
+msgstr ""
+
+#: app/utility/helpers.php:160
+msgid " Previous"
+msgstr ""
+
+#: app/utility/helpers.php:225
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: app/utility/helpers.php:242
+msgid "read more"
+msgstr ""
+
+#: app/utility/helpers.php:275
+msgid "Previous post"
+msgstr ""
+
+#: app/utility/helpers.php:284
+msgid "Next post"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:73
+msgid "Home"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:105 app/utility/util-part.tpl.php:109
+msgid "Shop"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:159 app/utility/util-part.tpl.php:165
+#: app/utility/util-part.tpl.php:171
+msgid "Blogs for"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:177
+msgid "Author Blogs"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:182
+msgid "Blogs"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:187
+msgid "Search Result"
+msgstr ""
+
+#: app/utility/util-part.tpl.php:192
+msgid "404 Error"
+msgstr ""
+
+#: comments.php:20
+msgid "Comment"
+msgstr ""
+
+#: comments.php:22
+msgid "Comments"
+msgstr ""
+
+#: comments.php:32 comments.php:62
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:35 comments.php:66
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:38 comments.php:70
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:47
+msgid "Reply"
+msgstr ""
+
+#: comments.php:76
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:97
+msgid "Name*"
+msgstr ""
+
+#: comments.php:97
+msgid "Enter Name"
+msgstr ""
+
+#: comments.php:98
+msgid "Email*"
+msgstr ""
+
+#: comments.php:98
+msgid "Enter Email"
+msgstr ""
+
+#: comments.php:117
+msgid "Write your comments......"
+msgstr ""
+
+#: comments.php:124
+msgid "You must be"
+msgstr ""
+
+#: comments.php:124
+msgid "logged in"
+msgstr ""
+
+#: comments.php:124
+msgid "to post a comment."
+msgstr ""
+
+#: comments.php:129
+msgid "Logged in as"
+msgstr ""
+
+#: comments.php:129
+msgid "Log out of this account"
+msgstr ""
+
+#: comments.php:129
+msgid "Log out?"
+msgstr ""
+
+#: comments.php:136
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments.php:137
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: comments.php:138
+msgid "Cancel Reply"
+msgstr ""
+
+#: comments.php:139
+msgid "Submit Now"
+msgstr ""
+
+#: page.php:22
+msgid "Edit"
+msgstr ""
+
+#: search.php:9
+msgid "Search Results for:"
+msgstr ""
+
+#: search.php:28
+#, php-format
+msgid "%s %s"
+msgstr ""
+
+#: searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: template-parts/blog/content-none.php:4
+msgid "Nothing found!"
+msgstr ""
+
+#: template-parts/blog/content-none.php:6
+msgid "It looks like nothing was found here. Maybe try a search?"
+msgstr ""
+
+#: template-parts/blog/content.php:15
+msgid "Readmore"
+msgstr ""
+
+#: template-parts/blog/paginations/pagination-style1.php:41
+msgid "prev"
+msgstr ""
+
+#: template-parts/blog/paginations/pagination-style1.php:76
+msgid "next"
+msgstr ""
+
+#: template-parts/headers/content-offcanvas.php:42
+msgid "Mobile menu"
+msgstr ""
+
+#: template-parts/headers/content-offcanvas.php:53
+msgid "gallery Image"
+msgstr ""
+
+#: template-parts/headers/header.php:47
+msgid "Offcanvas menu"
+msgstr ""

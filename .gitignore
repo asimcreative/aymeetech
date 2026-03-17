@@ -1,0 +1,62 @@
+# WordPress .gitignore
+
+# WordPress core files (keep only custom content)
+# Uncomment these if you only want to track themes/plugins
+# /wp-admin/
+# /wp-includes/
+# /wp-*.php
+# /index.php
+# /license.txt
+# /readme.html
+# /xmlrpc.php
+
+# Configuration (contains sensitive data)
+wp-config.php
+
+# Uploads directory (large files, not suitable for git)
+wp-content/uploads/
+
+# Cache files
+wp-content/cache/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/wp-cache-config.php
+wp-content/litespeed/
+
+# Backup files
+wp-content/ai1wm-backups/
+wp-content/backups/
+*.sql
+*.sql.gz
+
+# Debug log
+wp-content/debug.log
+error_log
+php.ini
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+
+# Deploy script (sensitive - upload manually)
+deploy-webhook.php
+deploy-token.txt
+
+# Backup htaccess
+.htaccess.bk
+
+# Node modules (if any)
+node_modules/
+
+# Temp files
+*.tmp
+*.bak
+*.orig
