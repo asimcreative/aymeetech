@@ -24,4 +24,4 @@ Allow: /wp-content/themes/
 Allow: /wp-content/mu-plugins/
 
 # Sitemaps
-Sitemap: https://dev.aymeetech.com/sitemap_index.xml
+Sitemap: https://aymeetech.com/sitemap_index.xml
