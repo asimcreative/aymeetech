@@ -107,9 +107,12 @@ class AymeeTech_Advanced_SEO {
         add_filter('wpseo_schema_graph', [$this, 'add_schema_graph'], 10, 2);
         add_filter('wpseo_schema_webpage_type', [$this, 'set_page_type']);
 
+        // Google Analytics GA4
+        add_action('wp_head', [$this, 'add_google_analytics'], 1);
+
         // Performance
-        add_action('wp_head', [$this, 'add_performance_hints'], 1);
-        add_action('wp_head', [$this, 'add_meta_enhancements'], 2);
+        add_action('wp_head', [$this, 'add_performance_hints'], 2);
+        add_action('wp_head', [$this, 'add_meta_enhancements'], 3);
 
         // Image alt text
         add_filter('wp_get_attachment_image_attributes', [$this, 'fix_image_alt'], 10, 3);
@@ -278,6 +281,17 @@ class AymeeTech_Advanced_SEO {
         ];
 
         return $page_types[$slug] ?? $type;
+    }
+
+    /**
+     * Google Analytics GA4
+     */
+    public function add_google_analytics() {
+        if (is_admin()) return;
+        ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNDDPSW1K9"></script>
+        <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LNDDPSW1K9');</script>
+        <?php
     }
 
     /**
