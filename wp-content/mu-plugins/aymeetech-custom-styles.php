@@ -79,7 +79,6 @@ class AymeeTech_Custom_Styles {
         </script>
         <?php
     }
-}
 
     public function whatsapp_button() {
         if (is_admin()) return;
