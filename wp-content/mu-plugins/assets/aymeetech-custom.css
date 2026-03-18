@@ -814,3 +814,677 @@ html {
 .qlwapp-toggle:hover {
     transform: scale(1.1) !important;
 }
+
+/* ===========================
+   Floating WhatsApp Button
+   =========================== */
+.ayt-whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: var(--ayt-transition);
+    animation: ayt-pulse 2s infinite;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.ayt-whatsapp-float:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.ayt-whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+
+.ayt-whatsapp-float .ayt-wa-tooltip {
+    position: absolute;
+    right: 70px;
+    background: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--ayt-transition);
+}
+
+.ayt-whatsapp-float:hover .ayt-wa-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===========================
+   Industry Cards
+   =========================== */
+.ayt-industry-card {
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius);
+    padding: 35px 25px;
+    text-align: center;
+    transition: var(--ayt-transition);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: var(--ayt-shadow-sm);
+    height: 100%;
+    min-height: 220px;
+}
+
+.ayt-industry-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: var(--ayt-primary);
+}
+
+.ayt-industry-icon {
+    font-size: 48px;
+    margin-bottom: 18px;
+    display: block;
+    transition: var(--ayt-transition);
+}
+
+.ayt-industry-card:hover .ayt-industry-icon {
+    transform: scale(1.2) rotateY(180deg);
+}
+
+.ayt-industry-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 10px;
+}
+
+.ayt-industry-card p {
+    font-size: 14px;
+    color: var(--ayt-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Industry Detail Cards (Industries page) */
+.ayt-industry-detail-card {
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius-lg);
+    padding: 40px 35px;
+    transition: var(--ayt-transition);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: var(--ayt-shadow-sm);
+    height: 100%;
+}
+
+.ayt-industry-detail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: rgba(64, 84, 178, 0.2);
+}
+
+.ayt-industry-icon-lg {
+    font-size: 56px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.ayt-industry-detail-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 12px;
+}
+
+.ayt-industry-detail-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+}
+
+.ayt-industry-detail-card ul li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    color: var(--ayt-text);
+    font-size: 15px;
+}
+
+.ayt-industry-detail-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--ayt-secondary);
+    font-weight: 700;
+}
+
+/* ===========================
+   Why Choose AymeeTech Section
+   =========================== */
+.ayt-why-choose-section {
+    text-align: center;
+    color: #fff;
+}
+
+.ayt-section-title-light {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.ayt-section-subtitle-light {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ayt-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ayt-why-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--ayt-radius);
+    padding: 35px 25px;
+    transition: var(--ayt-transition);
+    backdrop-filter: blur(5px);
+}
+
+.ayt-why-item:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.ayt-why-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--ayt-secondary);
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.ayt-why-item h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.ayt-why-item p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ===========================
+   Process Preview (Homepage)
+   =========================== */
+.ayt-process-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ayt-process-step-card {
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius);
+    padding: 35px 25px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 240px;
+    transition: var(--ayt-transition);
+    border: 2px solid rgba(0,0,0,0.06);
+    box-shadow: var(--ayt-shadow-sm);
+}
+
+.ayt-process-step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: var(--ayt-primary);
+}
+
+.ayt-step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--ayt-bg-gradient);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    box-shadow: 0 4px 15px rgba(64, 84, 178, 0.3);
+}
+
+.ayt-process-step-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 8px;
+}
+
+.ayt-process-step-card p {
+    font-size: 14px;
+    color: var(--ayt-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.ayt-process-arrow {
+    font-size: 28px;
+    color: var(--ayt-primary);
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+/* ===========================
+   CTA Banner
+   =========================== */
+.ayt-cta-banner {
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+}
+
+.ayt-cta-banner h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.ayt-cta-banner p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ayt-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ayt-btn-primary {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--ayt-bg-gradient);
+    color: #fff !important;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none !important;
+    transition: var(--ayt-transition);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(64, 84, 178, 0.3);
+}
+
+.ayt-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(64, 84, 178, 0.5);
+}
+
+.ayt-btn-white {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #fff;
+    color: var(--ayt-dark) !important;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none !important;
+    transition: var(--ayt-transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.ayt-btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    background: #f8f9fc;
+}
+
+.ayt-btn-outline-white {
+    display: inline-block;
+    padding: 14px 36px;
+    background: transparent;
+    color: #fff !important;
+    border: 2px solid rgba(255,255,255,0.6);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none !important;
+    transition: var(--ayt-transition);
+}
+
+.ayt-btn-outline-white:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.ayt-btn-block {
+    display: block !important;
+    text-align: center;
+    width: 100%;
+}
+
+/* ===========================
+   Pricing Cards
+   =========================== */
+.ayt-pricing-card {
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius-lg);
+    padding: 40px 30px;
+    text-align: center;
+    transition: var(--ayt-transition);
+    border: 2px solid rgba(0,0,0,0.06);
+    box-shadow: var(--ayt-shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.ayt-pricing-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--ayt-shadow-hover);
+    border-color: var(--ayt-primary);
+}
+
+.ayt-pricing-featured {
+    border-color: var(--ayt-primary) !important;
+    transform: scale(1.05);
+    box-shadow: var(--ayt-shadow-lg);
+}
+
+.ayt-pricing-featured:hover {
+    transform: scale(1.05) translateY(-12px);
+}
+
+.ayt-pricing-popular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--ayt-bg-gradient);
+    color: #fff;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.ayt-pricing-badge {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ayt-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.ayt-pricing-price {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--ayt-dark);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.ayt-pricing-period {
+    font-size: 14px;
+    color: var(--ayt-text-light);
+    margin-bottom: 30px;
+}
+
+.ayt-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    text-align: left;
+}
+
+.ayt-pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    font-size: 15px;
+    color: var(--ayt-text);
+}
+
+.ayt-pricing-features li:last-child {
+    border-bottom: none;
+}
+
+/* Add-on Cards */
+.ayt-addon-card {
+    background: var(--ayt-white);
+    border-radius: var(--ayt-radius);
+    padding: 30px 20px;
+    text-align: center;
+    transition: var(--ayt-transition);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: var(--ayt-shadow-sm);
+}
+
+.ayt-addon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ayt-shadow-md);
+    border-color: var(--ayt-secondary);
+}
+
+.ayt-addon-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 8px;
+}
+
+.ayt-addon-price {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ayt-secondary);
+    margin-bottom: 8px !important;
+}
+
+.ayt-addon-card p {
+    font-size: 14px;
+    color: var(--ayt-text-light);
+    line-height: 1.5;
+}
+
+/* ===========================
+   Why Choose Us - Detail Page
+   =========================== */
+.ayt-why-detail-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ayt-why-detail-item {
+    display: flex;
+    gap: 30px;
+    padding: 35px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: var(--ayt-transition);
+}
+
+.ayt-why-detail-item:hover {
+    padding-left: 15px;
+}
+
+.ayt-why-detail-item:last-child {
+    border-bottom: none;
+}
+
+.ayt-why-detail-num {
+    font-size: 48px;
+    font-weight: 900;
+    background: var(--ayt-bg-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    min-width: 80px;
+}
+
+.ayt-why-detail-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ayt-dark);
+    margin-bottom: 10px;
+}
+
+.ayt-why-detail-content p {
+    font-size: 15px;
+    color: var(--ayt-text-light);
+    line-height: 1.8;
+}
+
+/* Stat Cards */
+.ayt-stat-card {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.ayt-stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: var(--ayt-bg-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.ayt-stat-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ayt-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   Blog/Post Cards
+   =========================== */
+.seofy_module_blog .blog-post {
+    border-radius: var(--ayt-radius) !important;
+    overflow: hidden !important;
+    transition: var(--ayt-transition) !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+}
+
+.seofy_module_blog .blog-post:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--ayt-shadow-hover) !important;
+}
+
+/* ===========================
+   Enhanced Responsive
+   =========================== */
+@media (max-width: 1024px) {
+    .ayt-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ayt-pricing-featured {
+        transform: scale(1);
+    }
+    .ayt-pricing-featured:hover {
+        transform: translateY(-12px);
+    }
+}
+
+@media (max-width: 768px) {
+    .ayt-why-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .ayt-section-title-light {
+        font-size: 28px;
+    }
+    .ayt-cta-banner h2 {
+        font-size: 28px;
+    }
+    .ayt-process-preview {
+        flex-direction: column;
+    }
+    .ayt-process-step-card {
+        max-width: 100%;
+        width: 100%;
+    }
+    .ayt-process-arrow {
+        transform: rotate(90deg);
+    }
+    .ayt-why-detail-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .ayt-why-detail-num {
+        font-size: 36px;
+    }
+    .ayt-pricing-price {
+        font-size: 32px;
+    }
+    .ayt-whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: 80px;
+        right: 15px;
+    }
+    .ayt-whatsapp-float svg {
+        width: 26px;
+        height: 26px;
+    }
+    .ayt-stat-number {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ayt-industry-card {
+        min-height: auto;
+        padding: 25px 18px;
+    }
+    .ayt-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .ayt-btn-white,
+    .ayt-btn-outline-white,
+    .ayt-btn-primary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
