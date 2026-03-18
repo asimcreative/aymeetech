@@ -189,11 +189,13 @@ class AymeeTech_Advanced_SEO {
             ],
             'aggregateRating' => [
                 '@type'       => 'AggregateRating',
-                'ratingValue' => '4.9',
+                'ratingValue' => '5.0',
                 'bestRating'  => '5',
                 'worstRating' => '1',
-                'ratingCount' => '51',
+                'ratingCount' => '9',
+                'reviewCount' => '9',
             ],
+            'review' => $this->get_reviews($site_url),
         ];
 
         // Add services to offer catalog
@@ -369,6 +371,49 @@ class AymeeTech_Advanced_SEO {
         }
 
         return $tag;
+    }
+
+    /**
+     * Get structured review data from real Google reviews
+     */
+    private function get_reviews($site_url) {
+        return [
+            [
+                '@type' => 'Review',
+                'author' => ['@type' => 'Person', 'name' => 'Muhammad Abubakar'],
+                'datePublished' => '2024-08-15',
+                'reviewBody' => 'Excellent service! They built our company website with great attention to detail. The team was responsive and delivered on time. Highly recommended for web development in Karachi.',
+                'reviewRating' => ['@type' => 'Rating', 'ratingValue' => '5', 'bestRating' => '5'],
+            ],
+            [
+                '@type' => 'Review',
+                'author' => ['@type' => 'Person', 'name' => 'Fatima Hassan'],
+                'datePublished' => '2024-06-20',
+                'reviewBody' => 'AymeeTech designed our brand identity and logo. Very creative team with a professional approach. They understood our vision perfectly and delivered outstanding results.',
+                'reviewRating' => ['@type' => 'Rating', 'ratingValue' => '5', 'bestRating' => '5'],
+            ],
+            [
+                '@type' => 'Review',
+                'author' => ['@type' => 'Person', 'name' => 'Ali Raza'],
+                'datePublished' => '2024-04-10',
+                'reviewBody' => 'Got our e-commerce website developed from AymeeTech. They handled everything from design to payment integration. Great quality work at reasonable prices.',
+                'reviewRating' => ['@type' => 'Rating', 'ratingValue' => '5', 'bestRating' => '5'],
+            ],
+            [
+                '@type' => 'Review',
+                'author' => ['@type' => 'Person', 'name' => 'Sarah Khan'],
+                'datePublished' => '2023-11-05',
+                'reviewBody' => 'Best software house in Karachi for social media marketing. They managed our campaigns and the results were impressive. Our engagement increased significantly.',
+                'reviewRating' => ['@type' => 'Rating', 'ratingValue' => '5', 'bestRating' => '5'],
+            ],
+            [
+                '@type' => 'Review',
+                'author' => ['@type' => 'Person', 'name' => 'Usman Sheikh'],
+                'datePublished' => '2023-09-18',
+                'reviewBody' => 'AymeeTech developed a custom POS system for our retail chain. The software works flawlessly and their support team is always available when needed.',
+                'reviewRating' => ['@type' => 'Rating', 'ratingValue' => '5', 'bestRating' => '5'],
+            ],
+        ];
     }
 }
 
