@@ -430,6 +430,29 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
+// Fix Facebook page iframe: replace broken URL (empty &appId) with lazy-load version
+add_action('template_redirect', function() {
+    ob_start(function($html) {
+        $lazy = '<div class="at-fb-lazy" style="cursor:pointer;">
+<div class="at-fb-placeholder" style="background:rgba(255,255,255,0.08);border-radius:8px;width:300px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px solid rgba(255,255,255,0.15);">
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971h-1.513c-1.491 0-1.956.93-1.956 1.884v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+  <p style="color:#fff;font-size:14px;margin:0;font-family:sans-serif;">Aymeetech</p>
+  <span style="background:#1877f2;color:#fff;padding:8px 18px;border-radius:5px;font-size:13px;font-family:sans-serif;font-weight:600;">Click to load timeline</span>
+</div>
+<iframe data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faymeetech%2F&tabs=timeline&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true" width="300" height="300" style="border:none;overflow:hidden;display:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"></iframe>
+</div>
+<script>
+(function(){var w=document.querySelector(".at-fb-lazy");if(!w)return;
+w.querySelector(".at-fb-placeholder").addEventListener("click",function(){
+  var f=w.querySelector("iframe");f.src=f.dataset.src;f.style.display="block";
+  w.querySelector(".at-fb-placeholder").style.display="none";
+});})();
+</script>';
+        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*>\s*<\/iframe>/is', $lazy, $html);
+        return $html;
+    });
+});
+
 // Force-deactivate wp-whatsapp-chat plugin (replaced by custom button below)
 add_filter('option_active_plugins', function($plugins) {
     return array_filter((array) $plugins, function($plugin) {
