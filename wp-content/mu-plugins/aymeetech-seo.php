@@ -430,6 +430,15 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
+// Help Yoast read WPBakery shortcode content for accurate SEO analysis
+add_filter('wpseo_pre_analysis_post_content', function($content) {
+    if (has_shortcode($content, 'vc_row') || has_shortcode($content, 'vc_column_text')) {
+        $processed = do_shortcode($content);
+        return wp_strip_all_tags($processed);
+    }
+    return $content;
+});
+
 // Strip Facebook page plugin iframe to block SDK loading
 add_action('template_redirect', function() {
     ob_start(function($html) {
