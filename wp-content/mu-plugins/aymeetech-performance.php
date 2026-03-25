@@ -86,7 +86,8 @@ add_action('template_redirect', function () {
         $callback = function ($m) use ($site_url, $abspath) {
             $webp_url  = $m[1] . '.webp';
             $webp_path = $abspath . substr($webp_url, strlen($site_url));
-            return file_exists($webp_path) ? $webp_url : $m[0];
+            // Check file exists AND is non-empty (guards against 0-byte failed conversions)
+            return (file_exists($webp_path) && filesize($webp_path) > 0) ? $webp_url : $m[0];
         };
 
         // Split HTML into non-script and script parts.
