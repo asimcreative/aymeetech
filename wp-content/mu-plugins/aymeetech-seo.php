@@ -430,16 +430,6 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
-// Remove Facebook Page plugin iframe (causes Facebook SDK errors in console)
-add_action('template_redirect', function() {
-    ob_start(function($html) {
-        // Remove Facebook page.php plugin iframes
-        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*>.*?<\/iframe>/is', '', $html);
-        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*\/>/is', '', $html);
-        return $html;
-    });
-});
-
 // Force-deactivate wp-whatsapp-chat plugin (replaced by custom button below)
 add_filter('option_active_plugins', function($plugins) {
     return array_filter((array) $plugins, function($plugin) {
