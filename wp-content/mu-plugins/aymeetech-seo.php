@@ -430,6 +430,23 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
+// Replace Facebook page.php iframe with a simple follow button (no SDK loading)
+add_action('template_redirect', function() {
+    ob_start(function($html) {
+        $follow_btn = '<div style="display:flex;flex-direction:column;gap:12px;padding-top:8px;">
+<a href="https://www.facebook.com/aymeetech" target="_blank" rel="noopener noreferrer"
+   style="display:inline-flex;align-items:center;gap:10px;background:#1877f2;color:#fff;text-decoration:none;padding:11px 20px;border-radius:6px;font-family:sans-serif;font-size:15px;font-weight:600;width:fit-content;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971h-1.513c-1.491 0-1.956.93-1.956 1.884v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+  Follow on Facebook
+</a>
+<p style="color:rgba(255,255,255,0.7);font-size:13px;margin:0;">Stay updated with our latest work and news</p>
+</div>';
+        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*>\s*<\/iframe>/is', $follow_btn, $html);
+        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*\/?\s*>/is', $follow_btn, $html);
+        return $html;
+    });
+});
+
 // Force-deactivate wp-whatsapp-chat plugin (replaced by custom button below)
 add_filter('option_active_plugins', function($plugins) {
     return array_filter((array) $plugins, function($plugin) {
