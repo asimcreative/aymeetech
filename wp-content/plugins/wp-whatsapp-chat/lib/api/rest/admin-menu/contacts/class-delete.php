@@ -21,7 +21,14 @@ class Delete extends Base {
 			}
 
 			$models_contacts = Models_Contacts::instance();
-			$success         = $models_contacts->delete( $contact_id );
+			$all_contacts    = $models_contacts->get_all();
+
+			// Prevent deletion when only one contact remains
+			if ( count( $all_contacts ) <= 1 ) {
+				throw new \Exception( esc_html__( 'Cannot delete the last contact. At least one contact must remain.', 'wp-whatsapp-chat' ), 400 );
+			}
+
+			$success = $models_contacts->delete( $contact_id );
 
 			if ( ! $success ) {
 				throw new \Exception( esc_html__( 'Can\'t delete contact, id not found', 'wp-whatsapp-chat' ), 404 );

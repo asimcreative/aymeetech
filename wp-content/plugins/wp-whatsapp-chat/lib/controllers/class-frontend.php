@@ -25,6 +25,14 @@ class Frontend {
 			},
 			10
 		);
+		add_filter( 'litespeed_optm_js_defer_exc', array( __CLASS__, 'litespeed_exclude' ) );
+		add_filter( 'litespeed_optm_js_exc', array( __CLASS__, 'litespeed_exclude' ) );
+		add_filter( 'litespeed_optm_css_exc', array( __CLASS__, 'litespeed_exclude' ) );
+	}
+
+	public static function litespeed_exclude( $excludes ) {
+		$excludes[] = 'wp-whatsapp-chat/build/frontend';
+		return $excludes;
 	}
 
 	public function display() {
@@ -41,7 +49,6 @@ class Frontend {
 
 		do_action( 'qlwapp_load' );
 	}
-
 
 	public static function register_scripts() {
 

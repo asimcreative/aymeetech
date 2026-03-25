@@ -4,16 +4,18 @@ Donate link: https://quadlayers.com/products/whatsapp-chat/
 Tags: whatsapp, whatsapp business, whatsapp chat, woocommerce whatsapp, click to chat
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.8
-Stable tag: 7.8.6
+Tested up to: 6.9
+Stable tag: 8.3.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+WC requires at least: 4.0
+WC tested up to: 10.6
 
 WhatsApp Chat🔥 allows you to enhance customer engagement! Integrate "WhatsApp" or "WhatsApp Business" with a single click.
 
 == Description ==
 
-[Premium](https://quadlayers.com/products/whatsapp-chat/) | [Demo](https://quadlayers.com/demo/whatsapp-chat/) | [Documentation](https://quadlayers.com/documentation/whatsapp-chat/) | [Community](https://www.facebook.com/groups/quadlayers/)
+[Premium](https://quadlayers.com/products/whatsapp-chat/) | [Demo](https://quadlayers.com/demo/whatsapp-chat/) | [Documentation](https://quadlayers.com/documentation/whatsapp-chat/) | [Discord](https://discord.com/invite/U3rs3rPPQ4)
 
 WhatsApp Chat for WordPress allows your customers to click a button and open a conversation from your website directly to your "WhatsApp" or "WhatsApp Business" phone number. This plugin includes a Whatsapp button where you can include a pre-set message, which will be automatically be the first message in the conversation.
 
@@ -24,7 +26,7 @@ This plugin was formerly known as "WhatsApp Chat". WordPress forced us on August
 
 == Why WhatsApp? ==
 WhatsApp is these days, the most popular instant messaging application in the world. Is available in more than 100 countries and supporting more than 50 languages.
-This means most of our users <span style="background-color: #f6d5d9;">use</span> WhatsApp as their main contact method, and they probably have been using it for years. Therefore, offering easy access from our website is a good way to convert those visitors into customers.
+This means most of our users use WhatsApp as their main contact method, and they probably have been using it for years. Therefore, offering easy access from our website is a good way to convert those visitors into customers.
 Generating leads is the key to every business success, and the Social Chat button can help you to increase your overall sales and reach this goal.
 
 == WhatsApp Button ==
@@ -46,6 +48,9 @@ Social Chat also allows you to include a box to show some contact information an
 > * Vertical and horizontal position
 > * Custom button text
 > * Custom user message
+> * WooCommerce product page integration
+> * WooCommerce archive pages integration
+> * Dynamic message variables
 
 == WhatsApp Message Dynamic Variables ==
 Synce version 5.0.6 you're able use variables in your WhatsApp Button or contact messages.
@@ -56,11 +61,20 @@ Synce version 5.0.6 you're able use variables in your WhatsApp Button or contact
 {CURRENT_TITLE} ➡ Is replaced by the current page title
 {CURRENT_URL} 	➡ Is replaced by the current page url
 
+== WooCommerce WhatsApp Message Variables ==
+Since version 8.1.9, WooCommerce users can use product-specific variables in their WhatsApp messages:
+
+{PRODUCT_TITLE} ➡ Is replaced by the product name
+{PRODUCT_URL} 	➡ Is replaced by the product URL
+{PRODUCT_PRICE} ➡ Is replaced by the product price
+{PRODUCT_SKU} 	➡ Is replaced by the product SKU
+{PRODUCT_ID} 	➡ Is replaced by the product ID
+
 == 🎁 New!! WooCommerce WhatsApp ==
 
 Since version 6.0.1 you can include a WooCommerce WhatsApp button in the Single product pages to allows your users to prompt a custom message to your WhatsApp App.
 
-The WhatsApp Button can be included directly on your WooCoomerce product pages next to the “Add to cart” button.
+The WhatsApp Button can be included directly on your WooCoomerce product pages next to the "Add to cart" button.
 
 Also you can include WooCommerce WhatsApp button in the next actions:
 
@@ -70,23 +84,72 @@ Also you can include WooCommerce WhatsApp button in the next actions:
 > * After "Add To Cart" form
 > * After "Additional information"
 
+== 🎁 New!! WooCommerce Archives WhatsApp ==
+
+Since version 8.1.9 you can display a customizable WhatsApp button on WooCommerce archive pages, including:
+
+> * Shop page
+> * Product category archives
+> * Product tag archives
+> * Product brand archives (for plugins that support it)
+
+You can configure a custom message, button style, and position for each archive type. The button supports all WooCommerce product variables, making it easy for customers to inquire about products directly from archive pages.
+
+== 🎁 New!! WooCommerce WhatsApp Payment Gateway (Premium) ==
+
+Since version 8.3.0 you can enable WhatsApp as a payment method in WooCommerce checkout! This powerful **premium** feature allows customers to:
+
+> * Select WhatsApp Order as a payment method at checkout
+> * Automatically send order details to your WhatsApp number
+> * Customize order messages with dynamic variables (ORDER_ID, ORDER_TOTAL, CUSTOMER_NAME, ORDER_PRODUCTS, etc.)
+> * Auto-redirect customers to WhatsApp after placing an order
+> * Configure custom order status, redirect delay, and visibility settings
+> * Support for both individual phone numbers and WhatsApp groups
+> * Full compatibility with WooCommerce Blocks checkout
+
+Perfect for businesses that want to confirm payments via WhatsApp or provide a more personal checkout experience. All order information is automatically formatted and sent to your WhatsApp, making order management seamless.
+
+**WooCommerce Order Message Variables:**
+{ORDER_ID} ➡ Order ID
+{ORDER_NUMBER} ➡ Order Number
+{ORDER_TOTAL} ➡ Order Total Amount
+{ORDER_DATE} ➡ Order Date
+{ORDER_TIME} ➡ Order Time
+{ORDER_STATUS} ➡ Order Status
+{ORDER_URL} ➡ View Order URL
+{ORDER_PRODUCTS} ➡ List of ordered products
+{CUSTOMER_NAME} ➡ Customer Full Name
+{CUSTOMER_EMAIL} ➡ Customer Email
+{CUSTOMER_PHONE} ➡ Customer Phone
+{BILLING_ADDRESS} ➡ Billing Address
+{SHIPPING_ADDRESS} ➡ Shipping Address
+{PAYMENT_METHOD} ➡ Payment Method Title
+
 == WhatsApp Premium ==
 The premium version of the Social Chat plugin allows you to include multiple team member agents, distinguishing their names and labels inside. The contact box helps to provide direct contacts to the different support areas of your site.
 A new option to display a chatbox for each agent is included. This box will be displayed when the user clicks on the WhatsApp contact, and you can define custom message to be shown from each contact. Your users will be able to type the message that will be sent to the WhatsApp contact phone.
-Finally, we’ve included an option that allows you to select between more than fourteen icons to be included at WhatsApp button, and allowa full integration with the WordPress live customizer.
+Finally, we've included an option that allows you to select between more than fourteen icons to be included at WhatsApp button, and allowa full integration with the WordPress live customizer.
+
+== AI-Powered Chatbots (Beta) ==
+Build intelligent chatbots with our visual flow builder - no coding required! Create smart conversations using a simple drag-and-drop interface to convert visitors into customers. Design conversation flows with connected blocks, deploy instantly to your contacts, and boost engagement with AI-powered responses. Join our Discord community to get early access and help shape this revolutionary feature.
 
 == Social Chat Premium Features ==
 
+> * AI-Powered Chatbots with visual flow builder
 > * Multiple WhatsApp phone numbers
 > * Chatbox interface for each WhatsApp phone number
 > * Customize each WhatsApp contact welcome message
 > * Allow users to send the first message to your WhatsApp
-> * Display WhatsApp button based on custom post types and taxonomies 
+> * GDPR consent checkbox with customizable message
+> * Display WhatsApp button based on custom post types and taxonomies
 > * Display WhatsApp Button business hours
 > * Display WhatsApp Contacts business hours
 > * Google Analytics v3 events
 > * Google Analytics v4 events
 > * WhatsApp group support
+> * WooCommerce WhatsApp Payment Gateway
+> * Auto-redirect to WhatsApp after order placement
+> * WooCommerce Blocks checkout compatibility
 
 == WhatsApp Button Installation ==
 1. Go to the Plugins Menu in WordPress
@@ -108,7 +171,7 @@ You can change the shortcode attributes to customize the WhatsApp phone number, 
 
 You can contact us trough this channels
 
-[Support Forum](https://wordpress.org/support/plugin/wp-whatsapp-chat/) | [Support Ticket](https://quadlayers.com/account/support) | [Support Chat](https://www.facebook.com/quadlayers/)
+[Support Forum](https://wordpress.org/support/plugin/wp-whatsapp-chat/) | [Support Ticket](https://quadlayers.com/account/support) | [Discord Community](https://discord.com/invite/U3rs3rPPQ4)
 
 = Can I use more than one WhatsApp number? =
 
@@ -118,7 +181,7 @@ Yes, this option is available in our premium version
 
 = Social Chat is GDPR compatible? =
 
-Yes, Social Chat WP don't save any personal data and don't use cookies.
+Yes, Social Chat WP is fully GDPR compliant and does not store any personal data. The premium version includes an advanced GDPR consent feature that displays a customizable checkbox with your privacy notice. Users must accept the consent before they can interact with contacts or send messages, ensuring complete compliance with data protection regulations.
 
 = Will my WhatsApp number be visible to all users? =
 
@@ -137,486 +200,119 @@ Don't use: +001-(555)1234567
 
 == Changelog ==
 
-= 7.8.6 =
-* Fix php 7.2 errors
+= 8.3.6 =
+* Fix: LiteSpeed Cache compatibility for frontend bundle
 
-= 7.8.5 =
-* Feat add desktop option for WhatsApp api or web link
+= 8.3.5 =
+* Fix: Improve admin dashboard menu navigation
 
-= 7.8.4 =
-* Feat add outside click box close option
+= 8.3.4 =
+* Fix: WooCommerce checkout gateway is now disabled by default
 
-= 7.8.3 =
-* Fix contacts js error
+= 8.3.3 =
+* Fix: Prevent WooCommerce button hooks from loading when devices visibility is set to hide
 
-= 7.8.2 =
-* Feat add desktop/mobile switch in preview
+= 8.3.2 =
+* Feat: Add contact type icon badge on avatar (phone, group, bot)
+* Fix: Prevent user first message in contact bots
+* Fix: Prevent page scroll when scrolling the chat message list
+* Fix: Unify Button and Visibility settings save/cancel into a single explicit action
+* Fix: Prevent UI from getting stuck in loading state on save error
 
-= 7.8.1 =
-* Fix contacts php error
+= 8.3.1 =
+* Feat: Unify welcome and premium page
 
-= 7.8.0 =
-* Update packages
-* Fix contacts order save
+= 8.3.0 =
+* Feat: Add WooCommerce WhatsApp Payment Gateway
+* Feat: Allow customers to select WhatsApp as payment method at checkout
+* Feat: Auto-send order details to WhatsApp with customizable messages
+* Feat: Support for WooCommerce order dynamic variables (ORDER_ID, ORDER_TOTAL, CUSTOMER_NAME, etc.)
+* Feat: Auto-redirect to WhatsApp after order placement with configurable delay
+* Feat: Full WooCommerce Blocks checkout compatibility
+* Feat: Gateway configuration UI in admin settings panel
 
-= 7.7.9 =
-* Fix demo and documentation links
+= 8.2.1 =
+* Fix: Update Bot API endpoints
 
-= 7.7.8 =
-* Fix improve get_terms to reduce term load time
+= 8.2.0 =
+* Improve: WooCommerce product pages now use dynamic product variables by default
+* Improve: WooCommerce archive pages now use site-specific variables by default
 
-= 7.7.7 =
-* Update readme.txt
+= 8.1.9 =
+* Feat: Add WooCommerce Archives button support (shop, categories, tags, brands)
+* Feat: Add WooCommerce product dynamic variables (PRODUCT_TITLE, PRODUCT_URL, PRODUCT_PRICE, PRODUCT_SKU, PRODUCT_ID)
+* Feat: Add device visibility control for WooCommerce buttons
 
-= 7.7.5 =
-* Move switch box button
+= 8.1.8 =
+* Feat: Add admin menu better tooltips & helpers
 
-= 7.7.4 =
-* Fix box footer link
-* Fix box autoload
-* Feat add box max height
+= 8.1.7 =
+* Feat: Update rating request notice
 
-= 7.7.3 =
-* Load scripts only when necessary
+= 8.1.6 =
+* Feat: Add WooCommerce button preview
 
-= 7.7.2 =
-* Responsive tabs sidebar
-* Fix double scrollbar issue
+= 8.1.5 =
+* Fix: RTL support
+* Fix: Admin menu menu loading preview 
 
-= 7.7.1 =
-* Display WooCommerce tab conditionally
-* Add WhatsApp phone or group link test 
+= 8.1.4 =
+* Fix: WooCommerce HPOS compatibility
+* Feat: Customize tab
 
-= 7.7.0 =
-* Refactor WhatsApp frontend UI
+= 8.1.3 =
+* Feat: WooCommerce compatibility
 
-= 7.6.8 =
-* Fix Update dependencies
+= 8.1.2 =
+* Fix: Header & footer headings sizes
+* Fix: Display default new contact settings
 
-= 7.6.7 =
-* Fix Prevent save empty WhatsApp phone number
-* Fix WhatsApp button select and multiselect height
+= 8.1.1 =
+* Fix: Premium bot redirect block
 
-= 7.6.6 =
-* Fix load textdomain alert
-
-= 7.6.5 =
-* WordPress compatibility
-
-= 7.6.4 =
-* WordPress compatibility
-
-= 7.6.2 =
-* New WhatsApp Chat UI
-
-= 7.6.1 =
-* Revert changes in 7.6.0
-
-= 7.6.0 =
-* New WhatsApp Chat UI
-
-= 7.5.2 =
-* Fix load textdomain alert
-
-= 7.5.1 =
-* Update readme.txt
-
-= 7.5.0 =
-* WordPress compatibility
-
-= 7.4.8 =
-* WordPress compatibility
-
-= 7.4.7 =
-* Update plugin feedback notice
-
-= 7.4.6 =
-* Update readme.txt
-* Remove Admin menu scrips from unnecessary pages
-
-= 7.4.5 =
-* Admin panel improvements
-
-= 7.4.4 =
-* WordPress compatibility
-
-= 7.4.3 =
-* Chat message word break option
-
-= 7.4.2 =
-* readme.txt
-
-= 7.4.1 =
-* WhatsApp tags update
-
-= 7.4.0 =
-* WhatsApp tags update
-
-= 7.3.9 =
-* WordPress compatibility
-
-= 7.3.8 =
-* Fix customizer issues
-
-= 7.3.7 =
-* Update packages
-
-= 7.3.6 =
-* Fix. PHP errors
-
-= 7.3.5 =
-* Fix missing translations
-
-= 7.3.4 =
-* Fix. PHP errors
-
-= 7.3.3 =
-* Fix. PHP errors
-
-= 7.3.2 =
-Fix missing translations
-
-= 7.3.1 =
-* Refactor fixes
-
-= 7.3.0 =
-* Refactor
-* New admin menu 
-
-= 7.2.5 =
-Fix WooCommerce button message replacements
-
-= 7.2.4 =
-Fix missing translations
-
-= 7.2.3 =
-Fix WhatsApp message missing line breakes 
-
-= 7.2.2 =
-Fix WhatsApp close on Android keyboard open
-
-= 7.2.1 =
-Implement database orm
-
-= 7.2.0 =
-Fix WhatsApp button auto open
-
-= 7.1.9 =
-Lazy loading images
-
-= 7.1.8 =
-WordPress compatibility
-
-= 7.1.7 =
-Update readme.txt
-
-= 7.1.6 =
-Update portfolio link
-
-= 7.1.5 =
-WordPress compatibility
-
-= 7.1.4 =
-Fix: WooCommerce WhatsApp button
-
-= 7.1.3 =
-Fix: Update old phone number
-
-= 7.1.2 =
-Fix: Composer packages update
-
-= 7.1.1 =
-* Fix: WhatsApp Chat readme.txt updated
-
-= 7.1.0 =
-* Fix: WhatsApp WooCommerce Support
-
-= 7.0.9 =
-* Fix: WhatsApp WordPress link
-
-= 7.0.8 =
-* Fix: WhatsApp button available days
-
-= 7.0.7 =
-* WordPress compatibility
-
-= 7.0.6 =
-* Fix: Missing chat box message
-
-= 7.0.5 =
-* Fix: jQuery removed
-
-= 7.0.4 =
-* Fix: Js fixes
-
-= 7.0.3 =
+= 8.1.0 =
 * Fix: WordPress compatibility
+* Fix: Premium compatibility
 
-= 7.0.2 =
-* Fix: Composer packages update
-* Fix: Update language package
+= 8.0.9 =
+* Fix: Legacy admin menu settings
+* Fix: Premium compatibility
 
-= 7.0.1 =
-* Fix: Composer packages update
+= 8.0.8 =
+* Fix: WhatsApp contacts modal and button close button color
 
-= 7.0.0 =
-* Refactor
+= 8.0.7 =
+* Fix: Color picker alpha
 
-= 6.3.1 =
-* Fix. WhatsApp Chat landing page url
-* Fix. WhatsApp Chat demo page url
+= 8.0.6 =
+* Fix: WP Rocket compatibility
 
-= 6.3.0 =
-* Fix. WordPress compatibility
+= 8.0.5 =
+* Fix: Button image layout
 
-= 6.2.9 =
-* Fix. PHP errors
+= 8.0.4 =
+* Fix: Discord invite link
 
-= 6.2.8 =
-* Fix. Hide contacts
+= 8.0.3 =
+* Fix: Add rating support for premium bots feature
 
-= 6.2.7 =
-* Fix. Exclude from WooCommerce shop
+= 8.0.2 =
+* Fix: Improve admin menu tabs navigation
+* Fix: Improve time days multiselect
+* Fix: Header and footer field sync issue in Box settings
 
-= 6.2.6 =
-* Fix. Settings link
+= 8.0.1 =
+* Fix: LocalStorage store name
 
-= 6.2.5 =
-* Fix. WhatsApp premium compatibility
+= 8.0.0 =
+* Feat: Premium Bots feature support (coming soon)
+* Fix: GDPR cookie consent now properly disables contact interactions and message sending when not accepted
+* Fix: Outside click detection improved in admin preview to prevent unintended box closures
+* Fix: Admin menu settings tabs now implement save/cancel pattern instead of auto-save to prevent unintended changes
+* Fix: WooCommerce tab button rounded property properly disabled in settings
 
-= 6.2.4 =
-* Fix. Renamed to Social Chat
-
-= 6.2.3 =
-* Fix. Premium compatibility
-
-= 6.2.2 =
-* Fix. Elementor compatibility
-
-= 6.2.1 =
-* Fix. WordPress compatibility
-
-= 6.2.0 =
-* Fix. WhatsApp box auto open
-
-= 6.1.9 =
-* Fix. WhatsApp box auto open
-
-= 6.1.8 =
-* Fix. WhatsApp premium compatibility
-
-= 6.1.7 =
-* Fix. WhatsApp premium compatibility
-
-= 6.1.6 =
-* Fix. WhatsApp premium compatibility
-
-= 6.1.5 =
-* Fix. WooCommerce WhatsApp
-
-= 6.1.4 =
-* Fix. Social Chat
-
-= 6.1.3 =
-* Fix. WhatsApp phone number
-
-= 6.1.2 =
-* Fix. Social Chat style
-
-= 6.1.1 =
-* Fix. WhatsApp button style
-
-= 6.1.0 =
-* Fix. WhatsApp premium compatibility
-* Fix. Styles fixes
-
-= 6.0.9 =
-* Fix. WordPress compatibility
-
-= 6.0.8 =
-* Fix. WordPress compatibility
-
-= 6.0.7 =
-* Fix. WhatsApp files refactor
-
-= 6.0.6 =
-* Fix. WhatsApp available time fix
-
-= 6.0.5 =
-* Fix. Escaping security issues
-
-= 6.0.4 =
-* Fix. WP WhatsApp premium errors
-
-= 6.0.3 =
-* Fix. WhatsApp contact box close icon
-* Fix. Social Chat logo
-
-= 6.0.2 =
-* Fix. WhatsApp contact box header default content
-* Fix. WhatsApp contact box styles
-
-= 6.0.1 =
-* Fix. WhatsApp contact phone number sanitize
-
-= 6.0.0 =
-* New. WhatsApp WooCommerce Support
-
-= 5.1.0 =
-* Fix. WhatsApp init hook
-
-= 5.0.9 =
-* Fix. WhatsApp iPhone textarea Auto Zoom disable
-
-= 5.0.8 =
-* Fix. WordPress compatibility
-* New. Add WhatsApp phone number notification
-
-= 5.0.7 =
-* New. Admin WhatsApp Icon
-
-= 5.0.6 =
-* New. Social Chat message vars
-
-= 5.0.5 =
-* Fix. WordPress compatibility
-
-= 5.0.4 =
-* Fix. Contact phone number use button number as default
-* Fix. Contacts panel alert on first load
-
-= 5.0.3 =
-* Fix. WordPress compatibility
-
-= 5.0.1 =
-* Fix. WordPress compatibility
-
-= 5.0.0 =
-* Fix. Social Chat css fixes
-
-= 4.9.8 =
-* Fix. WordPress compatibility
-
-= 4.9.7 =
-* Fix. WordPress compatibility
-
-= 4.9.6 =
-* Fix. QuadLayers widget cache
-
-= 4.9.6 =
-* Fix. WordPress compatibility
-
-= 4.9.5 =
-* Fix. WordPress compatibility
-
-= 4.9.4 =
-* Fix. WordPress compatibility
-
-= 4.9.3 =
-* New. Telegram add to suggestions tab
-
-= 4.9.2 =
-* Fix. QuadLayers dashboard widget
-
-= 4.9.1 =
-* Fix. font family change
-
-= 4.9.0 =
-* New. Admin improvements
-
-= 4.8.9 =
-* Fix. QuadLayers dashboard widget
-
-= 4.8.8 =
-* Fix. QuadLayers dashboard widget
-
-= 4.8.7 =
-* New. QuadLayers dashboard widget
-
-= 4.8.6 =
-* Fix. WordPress compatibility
-
-= 4.8.5 =
-* Fix. styles improvements
-
-= 4.2.2 =
-* Fix. language fix
-
-= 4.2.1 =
-* Fix. bad spelling
-
-= 4.2.0 =
-* Fix. incompatibility with visual composer add ons
-
-= 4.1.9 =
-* Fix. license market key
-
-= 4.1.8 =
-* Fix. WhatsApp button bubble text empty
-* Fix. WhatsApp shortcode not working in desktop devices
-
-= 4.1.7 =
-* Fix. WhatsApp delete contact
-
-= 4.1.6 =
-* Fix. WhatsApp Android textarea closes on click
-* Fix. WhatsApp Button empty settings not saving
-
-= 4.1.5 =
-* Fix. array to string conversion on first save
-* Fix. static method
-
-= 4.1.4 =
-* Fix. Social Chat avatar js fixes
-
-= 4.1.4 =
-* Fix. Social Chat avatar css fixes
-
-= 4.1.3 =
-* Fix. Social Chat contacts missing
-* Fix. Social Chat rounded images
-
-= 4.1.2 =
-* Fix. Social Chat button not open when box is disabled
-
-= 4.1.1 =
-* Fix. undefined variable
-
-= 4.1.0 =
-* Fix. Social Chat contact remove
-* Fix. Social Chat box disable
-* Fix. Social Chat button rounded disable
-* Fix. Social Chat button discreet link
-
-= 4.0.0 =
-
-* New. Social Chat button bubble layout
-* New. Social Chat button add or remove rounded corners
-* New. Social Chat button middle position
-* New. Social Chat button icon options
-* New. Social Chat button discreet link
-* New. Social Chat box to display contact
-* New. Social Chat box header message
-* New. Social Chat box footer message
-* New. Social Chat box contact name
-* New. Social Chat box contact phone
-* New. Social Chat box contact label
-* New. Social Chat box contact message
-* New. Social Chat box contact name
-* New. Social Chat show/hide in home search and 404 pages
-* New. Social Chat show/hide in taxonomies
-* New. Social Chat show/hide mobile devices
-* New. Social Chat show/hide desktop devices
-* Pro. Social Chat box multiple agents
-* Pro. Social Chat box chat for each agent
-* Pro. Social Chat color link
-* Pro. Social Chat color message
-* Pro. Social Chat color label
-* Pro. Social Chat color label
-* Pro. Social Chat color link
-* Pro. Social Chat color customizer integration
-* Pro. Social Chat button icons options
-* Pro. Social Chat show/hide in singular post types
+Older versions:
+https://plugins.svn.wordpress.org/wp-whatsapp-chat/trunk/changelog.txt
 
 == Upgrade Notice ==
 

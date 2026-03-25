@@ -7,6 +7,7 @@ use QuadLayers\QLWAPP\Services\Entity_Options;
 class Contact extends CollectionEntity {
 	public static $primaryKey = 'id'; //phpcs:ignore
 	public $id                = 0;
+	public $bot_id            = '';
 	public $order             = 1;
 	public $active            = 1;
 	public $chat              = 1;

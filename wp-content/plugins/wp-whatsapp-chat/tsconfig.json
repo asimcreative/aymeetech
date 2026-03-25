@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"target": "es2020",
 		"lib": ["dom", "es2020", "es2021.promise", "es2022.array"],
 		"module": "commonjs",
@@ -32,9 +32,7 @@
 		"noUncheckedIndexedAccess": false,
 		"isolatedModules": true,
 		"allowSyntheticDefaultImports": true,
-		"ignoreDeprecations": "5.0",
-		"jsxFactory": "React.createElement",
-		"jsxFragmentFactory": "React.Fragment"
+		"ignoreDeprecations": "5.0"
 	},
 	"include": ["global.d.ts", "packages/**/*.ts", "packages/**/*.tsx"],
 	"exclude": ["dist", "node_modules", "**/*.spec.ts", "**/*.test.ts"]

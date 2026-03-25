@@ -4,26 +4,26 @@ namespace QuadLayers\QLWAPP\Entities;
 use QuadLayers\WP_Orm\Entity\SingleEntity;
 
 class Button extends SingleEntity {
-	public $layout          = 'button';
-	public $box             = 'no';
-	public $position        = 'bottom-right';
-	public $text            = '';
-	public $message         = '';
-	public $icon            = 'qlwapp-whatsapp-icon';
-	public $type            = 'phone';
-	public $phone           = QLWAPP_PHONE_NUMBER;
-	public $group           = QLWAPP_GROUP_LINK;
-	public $developer       = 'no';
-	public $rounded         = 'yes';
-	public $timefrom        = '00:00';
-	public $timeto          = '00:00';
-	public $timedays        = array();
-	public $timezone        = '';
-	public $visibility      = 'readonly';
-	public $animation_name     = '';
-	public $animation_delay    = '';
-	public $whatsappLinkType   = 'api';
-	public $notification_bubble = 'none';
+	public $layout                        = 'button';
+	public $box                           = 'no';
+	public $position                      = 'bottom-right';
+	public $text                          = '';
+	public $message                       = '';
+	public $icon                          = 'qlwapp-whatsapp-icon';
+	public $type                          = 'phone';
+	public $phone                         = QLWAPP_PHONE_NUMBER;
+	public $group                         = QLWAPP_GROUP_LINK;
+	public $developer                     = 'no';
+	public $rounded                       = 'yes';
+	public $timefrom                      = '00:00';
+	public $timeto                        = '00:00';
+	public $timedays                      = array();
+	public $timezone                      = '';
+	public $visibility                    = 'readonly';
+	public $animation_name                = '';
+	public $animation_delay               = '';
+	public $whatsapp_link_type            = 'web';
+	public $notification_bubble           = 'none';
 	public $notification_bubble_animation = 'none';
 
 	public function __construct() {

@@ -25,13 +25,38 @@ function qlwapp_get_replacements() {
 	$title = wp_get_document_title();
 	remove_filter( 'document_title_separator', $remove );
 
+	// Verificar que $wp esté inicializado antes de acceder a sus propiedades
+	$current_url = home_url( '/' );
+	if ( isset( $wp ) && is_object( $wp ) && isset( $wp->request ) ) {
+		$current_url = home_url( $wp->request );
+	}
+
 	return array(
 		'{SITE_TITLE}'    => get_bloginfo( 'name' ),
 		'{SITE_URL}'      => home_url( '/' ),
 		'{SITE_EMAIL}'    => get_bloginfo( 'admin_email' ),
-		'{CURRENT_URL}'   => home_url( $wp->request ),
+		'{CURRENT_URL}'   => $current_url,
 		'{CURRENT_TITLE}' => $title,
 	);
+}
+
+function qlwapp_get_woocommerce_replacements() {
+
+	global $product;
+
+	$replacements = array();
+
+	if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
+		return $replacements;
+	}
+
+	$replacements['{PRODUCT_TITLE}'] = $product->get_name();
+	$replacements['{PRODUCT_URL}']   = get_permalink( $product->get_id() );
+	$replacements['{PRODUCT_PRICE}'] = strip_tags( wc_price( wc_get_price_to_display( $product ) ) );
+	$replacements['{PRODUCT_SKU}']   = $product->get_sku();
+	$replacements['{PRODUCT_ID}']    = $product->get_id();
+
+	return $replacements;
 }
 
 function qlwapp_get_replacements_text() {
@@ -41,9 +66,50 @@ function qlwapp_get_replacements_text() {
 	return implode( ' ', array_keys( $replacements ) );
 }
 
+function qlwapp_get_woocommerce_replacements_text() {
+
+	$replacements = array(
+		'{PRODUCT_TITLE}',
+		'{PRODUCT_URL}',
+		'{PRODUCT_PRICE}',
+		'{PRODUCT_SKU}',
+		'{PRODUCT_ID}',
+	);
+
+	return implode( ' ', $replacements );
+}
+
+function qlwapp_get_woocommerce_order_replacements_text() {
+
+	$replacements = array(
+		'{ORDER_ID}',
+		'{ORDER_NUMBER}',
+		'{ORDER_TOTAL}',
+		'{ORDER_DATE}',
+		'{ORDER_TIME}',
+		'{ORDER_STATUS}',
+		'{ORDER_URL}',
+		'{ORDER_PRODUCTS}',
+		'{CUSTOMER_NAME}',
+		'{CUSTOMER_EMAIL}',
+		'{CUSTOMER_PHONE}',
+		'{BILLING_ADDRESS}',
+		'{SHIPPING_ADDRESS}',
+		'{PAYMENT_METHOD}',
+	);
+
+	return implode( ' ', $replacements );
+}
+
 function qlwapp_replacements_vars( $text ) {
 
 	$replacements = qlwapp_get_replacements();
+
+	// Merge WooCommerce replacements if available.
+	$wc_replacements = qlwapp_get_woocommerce_replacements();
+	if ( ! empty( $wc_replacements ) ) {
+		$replacements = array_merge( $replacements, $wc_replacements );
+	}
 
 	return str_replace( array_keys( $replacements ), array_values( $replacements ), $text );
 }

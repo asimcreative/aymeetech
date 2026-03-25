@@ -34,7 +34,9 @@ class Button {
 			$result = $admin->getProperties();
 		}
 
-		if ( ! is_admin() ) {
+		// Only replace variables on frontend (not in admin or REST API admin requests).
+		$is_rest_admin = defined( 'REST_REQUEST' ) && REST_REQUEST && is_user_logged_in();
+		if ( ! is_admin() && ! $is_rest_admin ) {
 			$result['text']    = qlwapp_replacements_vars( $result['text'] );
 			$result['message'] = qlwapp_replacements_vars( $result['message'] );
 		}
@@ -65,10 +67,21 @@ class Button {
 			$settings['text'] = sanitize_text_field( $settings['text'] );
 		}
 		if ( isset( $settings['message'] ) ) {
-			$settings['message'] = sanitize_textarea_field( $settings['message'] );
+			// Preserve line breaks while sanitizing the message
+			$settings['message'] = wp_kses( $settings['message'], array() );
+			$settings['message'] = wp_unslash( $settings['message'] );
 		}
 		if ( isset( $settings['icon'] ) ) {
-			$settings['icon'] = sanitize_html_class( $settings['icon'] );
+			// Check if it's a URL (for custom images) or a CSS class (for font icons)
+			if ( filter_var( $settings['icon'], FILTER_VALIDATE_URL ) ||
+				( strpos( $settings['icon'], 'http' ) === 0 ) ||
+				( strpos( $settings['icon'], '.' ) !== false && preg_match( '/\.(jpg|jpeg|png|gif|svg|webp)$/i', $settings['icon'] ) ) ) {
+				// It's an image URL, sanitize as URL
+				$settings['icon'] = sanitize_url( $settings['icon'] );
+			} else {
+				// It's a CSS class, sanitize as HTML class
+				$settings['icon'] = sanitize_html_class( $settings['icon'] );
+			}
 		}
 		if ( isset( $settings['phone'] ) ) {
 			$settings['phone'] = qlwapp_format_phone( $settings['phone'] );
@@ -76,8 +89,8 @@ class Button {
 		if ( isset( $settings['group'] ) ) {
 			$settings['group'] = sanitize_url( $settings['group'] );
 		}
-		if ( isset( $settings['whatsappLinkType'] ) ) {
-			$settings['whatsappLinkType'] = in_array( $settings['whatsappLinkType'], array( 'api', 'web' ) ) ? $settings['whatsappLinkType'] : 'api';
+		if ( isset( $settings['whatsapp_link_type'] ) ) {
+			$settings['whatsapp_link_type'] = in_array( $settings['whatsapp_link_type'], array( 'api', 'web' ) ) ? $settings['whatsapp_link_type'] : 'web';
 		}
 
 		return $settings;
