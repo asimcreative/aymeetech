@@ -113,7 +113,27 @@ add_filter( 'xmlrpc_enabled', '__return_false' );
 remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 
-// 10. Defer non-critical scripts for faster page paint
+// 10. PHP-level WebP image replacement in HTML output (works on LiteSpeed & all servers)
+// Intercepts the full HTML output and replaces .jpg/.jpeg/.png URLs with .webp when file exists
+add_action( 'template_redirect', function() {
+    if ( is_admin() || is_feed() ) return;
+    ob_start( function( $html ) {
+        if ( empty( $html ) || strpos( $html, '<html' ) === false ) return $html;
+        $site_url = rtrim( site_url(), '/' );
+        $abspath  = rtrim( ABSPATH, '/\\' );
+        return preg_replace_callback(
+            '/(' . preg_quote( $site_url, '/' ) . '\/[^\s"\'<>?#]+)\.(jpe?g|png)/i',
+            function( $m ) use ( $site_url, $abspath ) {
+                $webp_url  = $m[1] . '.webp';
+                $webp_path = $abspath . substr( $webp_url, strlen( $site_url ) );
+                return file_exists( $webp_path ) ? $webp_url : $m[0];
+            },
+            $html
+        );
+    } );
+}, 1 );
+
+// 11. Defer non-critical scripts for faster page paint
 add_filter( 'script_loader_tag', function( $tag, $handle, $src ) {
     $defer_scripts = [
         'skip-link-focus-fix',
