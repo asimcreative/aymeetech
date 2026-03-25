@@ -1,11 +1,13 @@
 # BEGIN LSCACHE
 ## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
-<IfModule LiteSpeed>
+<IfModule mod_rewrite.c>
 RewriteEngine on
-CacheLookup on
-RewriteRule .* - [E=Cache-Control:no-autoflush]
 RewriteRule litespeed/debug/.*\.log$ - [F,L]
 RewriteRule \.litespeed_conf\.dat - [F,L]
+</IfModule>
+<IfModule LiteSpeed>
+CacheLookup on
+RewriteRule .* - [E=Cache-Control:no-autoflush]
 
 ### marker ASYNC start ###
 RewriteCond %{REQUEST_URI} /wp-admin/admin-ajax\.php
@@ -24,6 +26,7 @@ Header set Access-Control-Allow-Origin "*"
 ### marker WEBP start ###
 RewriteCond %{HTTP_ACCEPT} image/webp [OR]
 RewriteCond %{HTTP_USER_AGENT} iPhone\ OS\ (1[4-9]|[2-9][0-9]) [OR]
+RewriteCond %{HTTP_USER_AGENT} Macintosh.*Version/((1[7-9]|[2-9][0-9])|16\.([4-9]|[1-9][0-9])) [OR]
 RewriteCond %{HTTP_USER_AGENT} Firefox/([6-9][0-9]|[1-9][0-9]{2,})
 RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+webp]
 ### marker WEBP end ###
@@ -43,6 +46,20 @@ CacheKeyModify -qs:_ga
 ## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
 # END NON_LSCACHE
 
+# BEGIN WebP Image Serving
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Serve .webp when browser supports it and a .webp version of the file exists
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} ^(.*)\.(jpe?g|png)$
+    RewriteCond %1.webp -f
+    RewriteRule ^(.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=WEBPOK:1,L]
+</IfModule>
+<IfModule mod_headers.c>
+    Header append Vary Accept env=WEBPOK
+</IfModule>
+# END WebP Image Serving
+
 # BEGIN AymeeTech SEO & Security
 # === Security Headers ===
 <IfModule mod_headers.c>
@@ -52,6 +69,14 @@ CacheKeyModify -qs:_ga
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    # Performance headers
+    Header set X-DNS-Prefetch-Control "on"
+    Header set Connection "keep-alive"
+</IfModule>
+
+# === WebP Content Type ===
+<IfModule mod_mime.c>
+    AddType image/webp .webp
 </IfModule>
 
 # === Browser Caching ===
@@ -64,6 +89,7 @@ CacheKeyModify -qs:_ga
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
     ExpiresByType text/css "access plus 1 year"
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType application/x-javascript "access plus 1 year"
@@ -77,6 +103,21 @@ CacheKeyModify -qs:_ga
     ExpiresByType text/html "access plus 0 seconds"
     ExpiresByType text/xml "access plus 0 seconds"
     ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+# === Cache-Control Headers ===
+<IfModule mod_headers.c>
+    # Immutable static assets (images, fonts, JS, CSS)
+    <FilesMatch "\.(ico|pdf|jpg|jpeg|png|webp|gif|svg|woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    # HTML pages - short cache (WordPress/LiteSpeed manages page cache)
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
 </IfModule>
 
 # === GZIP Compression ===
@@ -153,17 +194,17 @@ FileETag None
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /
+RewriteBase /asim-projects/aymeetech/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
+RewriteRule . /asim-projects/aymeetech/index.php [L]
 </IfModule>
 
 # END WordPress
 
 # php -- BEGIN cPanel-generated handler, do not edit
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
-</IfModule>
+# <IfModule mime_module>
+#   AddHandler application/x-httpd-ea-php74 .php .php7 .phtml
+# </IfModule>
 # php -- END cPanel-generated handler, do not edit

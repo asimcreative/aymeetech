@@ -43,3 +43,88 @@ if ( class_exists( 'Kirki' ) ):
 endif;
 
 add_filter( 'use_widgets_block_editor', '__return_false' );
+
+/*----------------------------------------------------
+PERFORMANCE OPTIMIZATIONS
+-----------------------------------------------------*/
+
+// 1. Remove WordPress Emoji scripts/styles (saves ~30KB)
+add_action( 'init', function() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', function( $plugins ) {
+        return array_diff( $plugins, [ 'wpemoji' ] );
+    });
+    add_filter( 'emoji_svg_url', '__return_false' );
+});
+
+// 2. Remove WP oEmbed discovery links (saves HTTP requests)
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+// 3. Remove RSD / WLW manifest links
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+
+// 4. Remove WP version from head and feeds
+remove_action( 'wp_head', 'wp_generator' );
+add_filter( 'the_generator', '__return_empty_string' );
+
+// 5. Remove version query strings from static assets (improves caching hit rates)
+add_filter( 'script_loader_src', 'aymeetech_remove_query_strings', 15, 1 );
+add_filter( 'style_loader_src', 'aymeetech_remove_query_strings', 15, 1 );
+function aymeetech_remove_query_strings( $src ) {
+    if ( strpos( $src, '?ver=' ) ) {
+        $src = remove_query_arg( 'ver', $src );
+    }
+    return $src;
+}
+
+// 6. Add preconnect/dns-prefetch for Google Fonts & external services
+add_action( 'wp_head', function() {
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    echo '<link rel="dns-prefetch" href="//fonts.googleapis.com">' . "\n";
+    echo '<link rel="dns-prefetch" href="//fonts.gstatic.com">' . "\n";
+    echo '<link rel="dns-prefetch" href="//www.google-analytics.com">' . "\n";
+    echo '<link rel="dns-prefetch" href="//www.googletagmanager.com">' . "\n";
+}, 1 );
+
+// 7. Add native lazy loading to all images
+add_filter( 'the_content', function( $content ) {
+    return str_replace( '<img ', '<img loading="lazy" ', $content );
+});
+add_filter( 'post_thumbnail_html', function( $html ) {
+    return str_replace( '<img ', '<img loading="lazy" ', $html );
+});
+add_filter( 'get_avatar', function( $avatar ) {
+    return str_replace( '<img ', '<img loading="lazy" ', $avatar );
+});
+
+// 8. Disable XML-RPC (security + performance)
+add_filter( 'xmlrpc_enabled', '__return_false' );
+
+// 9. Remove Shortlink from head
+remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
+
+// 10. Defer non-critical scripts for faster page paint
+add_filter( 'script_loader_tag', function( $tag, $handle, $src ) {
+    $defer_scripts = [
+        'skip-link-focus-fix',
+        'hello-animation-script',
+        'wp-whatsapp-chat',
+    ];
+    if ( is_admin() ) return $tag;
+    foreach ( $defer_scripts as $script ) {
+        if ( $handle === $script ) {
+            return str_replace( ' src=', ' defer src=', $tag );
+        }
+    }
+    return $tag;
+}, 10, 3 );
