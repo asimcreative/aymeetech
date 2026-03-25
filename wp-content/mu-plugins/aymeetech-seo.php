@@ -359,8 +359,16 @@ class AymeeTech_Advanced_SEO {
      * Add defer/async to non-critical scripts
      */
     public function optimize_scripts($tag, $handle, $src) {
-        // Don't defer jQuery or critical scripts
-        $no_defer = ['jquery', 'jquery-core', 'jquery-migrate', 'wp-polyfill'];
+        // Never defer WordPress core scripts — deferring these breaks load order
+        // and causes "wp is not defined" / "_ is not defined" console errors
+        $no_defer = [
+            'jquery', 'jquery-core', 'jquery-migrate', 'wp-polyfill',
+            'wp-hooks', 'wp-i18n', 'wp-api-fetch', 'wp-data', 'wp-dom-ready',
+            'wp-element', 'wp-components', 'wp-compose', 'wp-redux-routine',
+            'wp-url', 'wp-is-shallow-equal', 'wp-priority-queue',
+            'lodash', 'underscore', 'backbone', 'regenerator-runtime',
+            'react', 'react-dom', 'moment',
+        ];
         if (in_array($handle, $no_defer)) {
             return $tag;
         }
