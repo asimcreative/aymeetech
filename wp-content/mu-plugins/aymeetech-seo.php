@@ -449,11 +449,15 @@ add_action('init', function() {
     set_transient('qlwapp_fb_fix_done', 1, YEAR_IN_SECONDS);
 });
 
-// Temp: DB info endpoint - DELETE after use
-add_action('init', function() {
-    if (isset($_GET['atdbinfo']) && $_GET['atdbinfo'] === 'aymee2026') {
-        header('Content-Type: application/json');
-        echo json_encode(['h'=>DB_HOST,'n'=>DB_NAME,'u'=>DB_USER,'p'=>DB_PASSWORD]);
-        exit;
-    }
+// Temp: DB info via REST - DELETE after use
+add_action('rest_api_init', function() {
+    register_rest_route('at/v1', '/dbinfo', [
+        'methods' => 'GET',
+        'callback' => function() {
+            return ['h'=>DB_HOST,'n'=>DB_NAME,'u'=>DB_USER,'p'=>DB_PASSWORD];
+        },
+        'permission_callback' => function($r) {
+            return $r->get_param('k') === 'aymee2026';
+        },
+    ]);
 });
