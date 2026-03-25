@@ -427,25 +427,14 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
-// One-time fix: remove Facebook Messenger contact from Social Chat plugin
+// Fix: remove Facebook Messenger contacts from Social Chat plugin's custom table
 add_action('init', function() {
-    if (get_transient('qlwapp_fb_fix_done')) return;
-
     global $wpdb;
-    $options = $wpdb->get_results(
-        "SELECT option_name, option_value FROM {$wpdb->prefix}options WHERE option_name LIKE '%qlwapp%contact%'"
+    $table = $wpdb->prefix . 'qlwapp_contacts';
+    if ($wpdb->get_var("SHOW TABLES LIKE '{$table}'") !== $table) return;
+
+    $wpdb->query(
+        "UPDATE {$table} SET type = 'phone' WHERE LOWER(type) IN ('messenger', 'facebook', 'fb', 'facebook_messenger')"
     );
-    foreach ($options as $opt) {
-        $data = maybe_unserialize($opt->option_value);
-        if (!is_array($data)) continue;
-        $fixed = array_values(array_filter($data, function($item) {
-            $type = strtolower($item['type'] ?? '');
-            return !in_array($type, ['messenger', 'facebook', 'fb', 'facebook_messenger']);
-        }));
-        if (count($fixed) < count($data)) {
-            update_option($opt->option_name, $fixed);
-        }
-    }
-    set_transient('qlwapp_fb_fix_done', 1, YEAR_IN_SECONDS);
-});
+}, 5);
 
