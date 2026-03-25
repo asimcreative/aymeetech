@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AymeeTech Performance
  * Description: Site-wide performance optimizations - WebP, caching, lazy load, JS defer.
- * Version: 1.2
+ * Version: 1.3
  */
 
 defined('ABSPATH') || exit;
@@ -54,7 +54,7 @@ add_action('wp_head', function () {
 }, 1);
 
 // ============================================================
-// 5. Native lazy loading on images
+// 5. Native lazy loading on images (content only, not hero)
 // ============================================================
 add_filter('the_content', fn($c) => str_replace('<img ', '<img loading="lazy" ', $c));
 add_filter('post_thumbnail_html', fn($h) => str_replace('<img ', '<img loading="lazy" ', $h));
@@ -71,24 +71,43 @@ add_filter('script_loader_tag', function ($tag, $handle) {
 
 // ============================================================
 // 7. WebP Output Buffer — replaces .jpg/.png URLs with .webp
+//    SAFELY skips <script> blocks to avoid breaking JS/sliders.
 //    Works on LiteSpeed, Apache, Nginx — any server.
-//    file_exists() only runs on cache-miss (LiteSpeed caches output).
 // ============================================================
 add_action('template_redirect', function () {
     if (is_admin() || is_feed()) return;
     ob_start(function ($html) {
         if (empty($html) || strpos($html, '<html') === false) return $html;
+
         $site_url = rtrim(site_url(), '/');
         $abspath  = rtrim(ABSPATH, '/\\');
-        return preg_replace_callback(
-            '/(' . preg_quote($site_url, '/') . '\/[^\s"\'<>?#]+)\.(jpe?g|png)/i',
-            function ($m) use ($site_url, $abspath) {
-                $webp_url  = $m[1] . '.webp';
-                $webp_path = $abspath . substr($webp_url, strlen($site_url));
-                return file_exists($webp_path) ? $webp_url : $m[0];
-            },
-            $html
-        );
+        $pattern  = '/(' . preg_quote($site_url, '/') . '\/[^\s"\'<>?#]+)\.(jpe?g|png)/i';
+
+        $callback = function ($m) use ($site_url, $abspath) {
+            $webp_url  = $m[1] . '.webp';
+            $webp_path = $abspath . substr($webp_url, strlen($site_url));
+            return file_exists($webp_path) ? $webp_url : $m[0];
+        };
+
+        // Split HTML into non-script and script parts.
+        // Only replace image URLs outside of <script> blocks
+        // to avoid breaking Revolution Slider and other JS plugins.
+        $parts = preg_split('/(<script[\s\S]*?<\/script>)/i', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if (!$parts) return $html;
+
+        $result = '';
+        foreach ($parts as $i => $part) {
+            if ($i % 2 === 1) {
+                // Odd = captured <script>...</script> block — leave untouched
+                $result .= $part;
+            } else {
+                // Even = regular HTML — safe to replace image URLs
+                $replaced = preg_replace_callback($pattern, $callback, $part);
+                $result .= ($replaced !== null) ? $replaced : $part;
+            }
+        }
+
+        return $result ?: $html;
     });
 }, 1);
 
