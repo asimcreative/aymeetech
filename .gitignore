@@ -16,6 +16,9 @@ wp-config.php
 # Uploads directory (large files, not suitable for git)
 wp-content/uploads/
 
+# Plugins (managed via WP Admin on live server - do not overwrite via deploy)
+wp-content/plugins/
+
 # Cache files
 wp-content/cache/
 wp-content/advanced-cache.php

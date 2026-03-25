@@ -359,8 +359,11 @@ class AymeeTech_Advanced_SEO {
      * Add defer/async to non-critical scripts
      */
     public function optimize_scripts($tag, $handle, $src) {
-        // Never defer WordPress core scripts — deferring these breaks load order
-        // and causes "wp is not defined" / "_ is not defined" console errors
+        // Never defer for logged-in users — admin tools (Yoast inspector, etc.)
+        // require strict script load order and break when deferred
+        if (is_user_logged_in()) return $tag;
+
+        // Never defer WordPress core scripts
         $no_defer = [
             'jquery', 'jquery-core', 'jquery-migrate', 'wp-polyfill',
             'wp-hooks', 'wp-i18n', 'wp-api-fetch', 'wp-data', 'wp-dom-ready',
