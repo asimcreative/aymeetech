@@ -430,25 +430,33 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
-// Fix Facebook page iframe: replace broken URL (empty &appId) with lazy-load version
+// Replace Facebook page plugin iframe with a static social follow widget (no SDK needed)
 add_action('template_redirect', function() {
     ob_start(function($html) {
-        $lazy = '<div class="at-fb-lazy" style="cursor:pointer;">
-<div class="at-fb-placeholder" style="background:rgba(255,255,255,0.08);border-radius:8px;width:300px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px solid rgba(255,255,255,0.15);">
-  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971h-1.513c-1.491 0-1.956.93-1.956 1.884v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-  <p style="color:#fff;font-size:14px;margin:0;font-family:sans-serif;">Aymeetech</p>
-  <span style="background:#1877f2;color:#fff;padding:8px 18px;border-radius:5px;font-size:13px;font-family:sans-serif;font-weight:600;">Click to load timeline</span>
-</div>
-<iframe data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Faymeetech%2F&tabs=timeline&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true" width="300" height="300" style="border:none;overflow:hidden;display:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay;clipboard-write;encrypted-media;picture-in-picture;web-share"></iframe>
-</div>
-<script>
-(function(){var w=document.querySelector(".at-fb-lazy");if(!w)return;
-w.querySelector(".at-fb-placeholder").addEventListener("click",function(){
-  var f=w.querySelector("iframe");f.src=f.dataset.src;f.style.display="block";
-  w.querySelector(".at-fb-placeholder").style.display="none";
-});})();
-</script>';
-        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*>\s*<\/iframe>/is', $lazy, $html);
+        $social_widget = '<div class="at-social-follow" style="font-family:sans-serif;">
+<style>
+.at-social-follow .at-sf-link{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;text-decoration:none;margin-bottom:10px;font-size:14px;font-weight:600;transition:opacity .2s;}
+.at-social-follow .at-sf-link:hover{opacity:.85;text-decoration:none;}
+.at-social-follow .at-sf-link svg{width:24px;height:24px;flex-shrink:0;}
+</style>
+<a class="at-sf-link" href="https://www.facebook.com/aymeetech" target="_blank" rel="noopener noreferrer" style="background:#1877f2;color:#fff;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971h-1.513c-1.491 0-1.956.93-1.956 1.884v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+  Follow on Facebook
+</a>
+<a class="at-sf-link" href="https://www.instagram.com/aymeetech" target="_blank" rel="noopener noreferrer" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  Follow on Instagram
+</a>
+<a class="at-sf-link" href="https://pk.linkedin.com/company/amyeetech" target="_blank" rel="noopener noreferrer" style="background:#0a66c2;color:#fff;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  Connect on LinkedIn
+</a>
+<a class="at-sf-link" href="https://wa.me/923162660235" target="_blank" rel="noopener noreferrer" style="background:#25d366;color:#fff;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#fff"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.493.664 4.83 1.822 6.847L2 30l7.356-1.793A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.4a11.36 11.36 0 01-5.789-1.585l-.415-.247-4.364 1.063 1.1-4.237-.27-.434A11.356 11.356 0 014.6 16C4.6 9.701 9.701 4.6 16 4.6S27.4 9.701 27.4 16 22.299 27.4 16 27.4zm6.26-8.508c-.344-.172-2.033-1.003-2.348-1.117-.315-.114-.544-.172-.773.172-.229.344-.886 1.117-1.086 1.346-.2.229-.4.258-.744.086-.344-.172-1.452-.535-2.766-1.707-1.022-.913-1.712-2.04-1.912-2.384-.2-.344-.021-.53.15-.702.154-.153.344-.4.516-.6.172-.2.229-.344.344-.573.114-.229.057-.43-.029-.602-.086-.172-.773-1.863-1.059-2.55-.279-.668-.562-.578-.773-.589l-.658-.011a1.264 1.264 0 00-.916.43c-.315.344-1.2 1.174-1.2 2.862 0 1.688 1.228 3.319 1.4 3.548.172.229 2.417 3.69 5.856 5.173.818.353 1.457.564 1.954.722.821.261 1.568.224 2.158.136.658-.099 2.033-.831 2.319-1.634.287-.802.287-1.49.2-1.634-.085-.143-.314-.229-.658-.4z"/></svg>
+  WhatsApp Us
+</a>
+</div>';
+        $html = preg_replace('/<iframe[^>]+facebook\.com\/plugins\/page\.php[^>]*>\s*<\/iframe>/is', $social_widget, $html);
         return $html;
     });
 });
