@@ -427,14 +427,69 @@ class AymeeTech_Advanced_SEO {
 
 new AymeeTech_Advanced_SEO();
 
-// Fix: remove Facebook Messenger contacts from Social Chat plugin's custom table
-add_action('init', function() {
-    global $wpdb;
-    $table = $wpdb->prefix . 'qlwapp_contacts';
-    if ($wpdb->get_var("SHOW TABLES LIKE '{$table}'") !== $table) return;
+// Force-deactivate wp-whatsapp-chat plugin (replaced by custom button below)
+add_filter('option_active_plugins', function($plugins) {
+    return array_filter((array) $plugins, function($plugin) {
+        return strpos($plugin, 'wp-whatsapp-chat') === false;
+    });
+});
+add_filter('site_option_active_sitewide_plugins', function($plugins) {
+    if (is_array($plugins)) {
+        foreach ($plugins as $key => $val) {
+            if (strpos($key, 'wp-whatsapp-chat') !== false) unset($plugins[$key]);
+        }
+    }
+    return $plugins;
+});
 
-    $wpdb->query(
-        "UPDATE {$table} SET type = 'phone' WHERE LOWER(type) IN ('messenger', 'facebook', 'fb', 'facebook_messenger')"
-    );
-}, 5);
+// Simple WhatsApp floating button (replaces Social Chat plugin)
+add_action('wp_footer', function() {
+    if (is_admin()) return;
+    $phone   = '923162660235';
+    $message = urlencode('Hello! I visited your website and would like to know more about your services.');
+    ?>
+    <style>
+    .at-whatsapp-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        padding: 12px 20px 12px 14px;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .at-whatsapp-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+        color: #fff;
+        text-decoration: none;
+    }
+    .at-whatsapp-btn svg {
+        width: 26px;
+        height: 26px;
+        flex-shrink: 0;
+    }
+    @media (max-width: 480px) {
+        .at-whatsapp-btn span { display: none; }
+        .at-whatsapp-btn { padding: 14px; border-radius: 50%; }
+    }
+    </style>
+    <a class="at-whatsapp-btn" href="https://wa.me/<?php echo esc_attr($phone); ?>?text=<?php echo esc_attr($message); ?>" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#fff">
+            <path d="M16 2C8.268 2 2 8.268 2 16c0 2.493.664 4.83 1.822 6.847L2 30l7.356-1.793A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.4a11.36 11.36 0 01-5.789-1.585l-.415-.247-4.364 1.063 1.1-4.237-.27-.434A11.356 11.356 0 014.6 16C4.6 9.701 9.701 4.6 16 4.6S27.4 9.701 27.4 16 22.299 27.4 16 27.4zm6.26-8.508c-.344-.172-2.033-1.003-2.348-1.117-.315-.114-.544-.172-.773.172-.229.344-.886 1.117-1.086 1.346-.2.229-.4.258-.744.086-.344-.172-1.452-.535-2.766-1.707-1.022-.913-1.712-2.04-1.912-2.384-.2-.344-.021-.53.15-.702.154-.153.344-.4.516-.6.172-.2.229-.344.344-.573.114-.229.057-.43-.029-.602-.086-.172-.773-1.863-1.059-2.55-.279-.668-.562-.578-.773-.589l-.658-.011a1.264 1.264 0 00-.916.43c-.315.344-1.2 1.174-1.2 2.862 0 1.688 1.228 3.319 1.4 3.548.172.229 2.417 3.69 5.856 5.173.818.353 1.457.564 1.954.722.821.261 1.568.224 2.158.136.658-.099 2.033-.831 2.319-1.634.287-.802.287-1.49.2-1.634-.085-.143-.314-.229-.658-.4z"/>
+        </svg>
+        <span>How can I help you?</span>
+    </a>
+    <?php
+});
 
