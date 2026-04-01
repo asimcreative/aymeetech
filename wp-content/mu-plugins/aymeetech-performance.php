@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AymeeTech Performance
  * Description: Site-wide performance optimizations - WebP, caching, lazy load, JS defer.
- * Version: 1.3
+ * Version: 1.5
  */
 
 defined('ABSPATH') || exit;
@@ -116,3 +116,24 @@ add_action('template_redirect', function () {
 // 8. Disable XML-RPC
 // ============================================================
 add_filter('xmlrpc_enabled', '__return_false');
+
+// ============================================================
+// 9. Footer 4-column layout fix
+//    Footer row has a vc_col-sm-12 spacer as first child +
+//    4 content columns (vc_col-sm-6 vc_col-lg-3).
+//    At md (992-1199px) vc_col-sm-6 = 50% → 2+2 per row.
+//    Fix: hide spacer + force all 4 columns to 25% at ≥992px.
+// ============================================================
+add_action('wp_head', function () {
+    if (is_admin()) return;
+    echo '<style>
+.vc_custom_1542704069755>.wpb_column.vc_col-sm-12{display:none!important}
+@media (min-width:992px){
+  .vc_custom_1542704069755>.wpb_column.vc_col-sm-6{
+    width:25%!important;
+    max-width:25%!important;
+    float:left!important;
+  }
+}
+</style>' . "\n";
+}, 20);
