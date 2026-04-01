@@ -124,16 +124,11 @@ add_filter('xmlrpc_enabled', '__return_false');
 //    At md (992-1199px) vc_col-sm-6 = 50% → 2+2 per row.
 //    Fix: hide spacer + force all 4 columns to 25% at ≥992px.
 // ============================================================
-add_action('wp_head', function () {
-    if (is_admin()) return;
-    echo '<style>
-.vc_custom_1542704069755>.wpb_column.vc_col-sm-12{display:none!important}
-@media (min-width:992px){
-  .vc_custom_1542704069755>.wpb_column.vc_col-sm-6{
-    width:25%!important;
-    max-width:25%!important;
-    float:left!important;
-  }
-}
-</style>' . "\n";
-}, 20);
+add_action('wp_enqueue_scripts', function () {
+    $css = '.vc_custom_1542704069755>.wpb_column.vc_col-sm-12{display:none!important}'
+         . '@media (min-width:992px){'
+         . '.vc_custom_1542704069755>.wpb_column.vc_col-sm-6{'
+         . 'width:25%!important;max-width:25%!important;float:left!important'
+         . '}}';
+    wp_add_inline_style('wp-block-library', $css);
+});
