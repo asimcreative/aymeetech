@@ -122,13 +122,13 @@ add_filter('xmlrpc_enabled', '__return_false');
 //    Footer row has a vc_col-sm-12 spacer as first child +
 //    4 content columns (vc_col-sm-6 vc_col-lg-3).
 //    At md (992-1199px) vc_col-sm-6 = 50% → 2+2 per row.
-//    Fix: hide spacer + force all 4 columns to 25% at ≥992px.
+//    Fix: dedicated CSS file so LiteSpeed includes it properly.
 // ============================================================
 add_action('wp_enqueue_scripts', function () {
-    $css = '.vc_custom_1542704069755>.wpb_column.vc_col-sm-12{display:none!important}'
-         . '@media (min-width:992px){'
-         . '.vc_custom_1542704069755>.wpb_column.vc_col-sm-6{'
-         . 'width:25%!important;max-width:25%!important;float:left!important'
-         . '}}';
-    wp_add_inline_style('wp-block-library', $css);
+    wp_enqueue_style(
+        'aymeetech-footer-fix',
+        WPMU_PLUGIN_URL . '/aymeetech-footer-fix.css',
+        [],
+        '1.0'
+    );
 });

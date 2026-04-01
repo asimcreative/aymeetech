@@ -1,0 +1,5 @@
+/* Footer 4-column layout fix */
+.vc_custom_1542704069755>.wpb_column.vc_col-sm-12{display:none!important}
+@media(min-width:992px){
+.vc_custom_1542704069755>.wpb_column.vc_col-sm-6{width:25%!important;max-width:25%!important;float:left!important}
+}
