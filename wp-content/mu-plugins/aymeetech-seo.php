@@ -291,8 +291,8 @@ class AymeeTech_Advanced_SEO {
     public function add_google_analytics() {
         if (is_admin()) return;
         ?>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNDDPSW1K9"></script>
-        <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-LNDDPSW1K9');</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFPQ37X8WH"></script>
+        <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SFPQ37X8WH');</script>
         <?php
     }
 
